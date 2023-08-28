@@ -55,7 +55,7 @@ jobs:
         run: mvn test-compile org.pitest:pitest-maven:mutationCoverage
 
       - name: Deploy
-        uses: rossdrew/actions-gh-pages@v3.9.3
+        uses: rossdrew/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./target/pit-rep
