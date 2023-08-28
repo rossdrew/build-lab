@@ -5,4 +5,4 @@ Some TDD written code to convert Roman numerals in order to play around with bui
 
 ## Working on
 
- - Publishing pitest reports to GitHub Pages
+ 1. Publishing pitest reports to GitHub Pages
