@@ -51,6 +51,7 @@ public class RomanNumeral {
                 reduced.set(buildIndex, reduced.get(buildIndex) + subject);
             }else{
                 repetitionCount = 1;
+                //TODO Pitest has identified a conditional boundary mutation here!
                 if (subject > previousValue) {
                     if (SUBTRACTIVE.contains(numeral.substring(characterIndex-1,characterIndex))) {
                         reduced.set(buildIndex, subject - reduced.get(buildIndex));

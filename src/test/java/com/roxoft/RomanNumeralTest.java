@@ -99,6 +99,9 @@ public class RomanNumeralTest {
 
     @ParameterizedTest
     @CsvSource({
+            //Invalid characters
+            "Q",
+            "E",
             //Rule 2: It is to be noted that no Roman numerals can come together more than 3 times.
             "IIII",
             "VVVV",
