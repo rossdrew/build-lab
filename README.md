@@ -1,8 +1,15 @@
 # Build Labratory
 
-Some TDD written code to convert Roman numerals in order to play around with build tools.
+A small codebase to experiment with build tools.
+
+## Contains
+
+- Some code to convert Roman numerals to numbers and back
+- Some Unit tests to test the Roman Numeral conversions
+- Pitest dependencies to mutate the code and validate the unit tests
+- GitHub actions to publish Pitest reports to GitHub pages [here](https://rossdrew.github.io/build-lab/)
 
 
-## Working on
+## Next Up
 
- 1. Publishing pitest reports to GitHub Pages
+ ???
