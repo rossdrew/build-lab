@@ -53,4 +53,4 @@ jobs:
           restore-keys: ${{ runner.os }}-maven-
 
       - name: Run Mutation Testing
-        run: mvn package -Ppitest org.pitest:pitest-maven:mutationCoverage
+        run: mvn test-compile org.pitest:pitest-maven:mutationCoverage
