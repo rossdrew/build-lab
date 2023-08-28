@@ -33,18 +33,14 @@ jobs:
 
   mutate:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        java: [ '8' ]
-        architecture: [ 'x64' ]
-    name: Mutation Testing with JDK ${{ matrix.java }} on ${{ matrix.architecture }}
+    name: Mutation Testing
     steps:
-      - uses: actions/checkout@v2.3.4
+      - uses: actions/checkout@v3
       - name: Setup JDK
         uses: actions/setup-java@v1
         with:
-          java-version: ${{ matrix.java }}
-          architecture: ${{ matrix.architecture }}
+          java-version: '17'
+          distribution: 'temurin'
 
       - uses: actions/cache@v2
         with:
