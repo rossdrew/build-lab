@@ -55,7 +55,8 @@ jobs:
         run: mvn -B verify checkstyle:checkstyle
 
       - name: Attach Checkstyle to Commit
-        uses: jwgmeligmeyling/checkstyle-github-action@v1.2
+#        uses: jwgmeligmeyling/checkstyle-github-action@v1.2
+        uses: cmelchior/checkstyle-github-action@4d748d6e705b05beb7cf4443c9d09d3226828114
         with:
           path: '**/checkstyle-result.xml'
 
