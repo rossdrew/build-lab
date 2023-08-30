@@ -10,7 +10,7 @@ A small codebase to experiment with build tools.
 - Reports published to GitHub pages [here](https://rossdrew.github.io/build-lab/) using [peaceiris/actions-gh-pages](https://github.com/peaceiris/actions-gh-pages)
   - JaCoCo code coverage
   - Pitest mutation testing
-- Checkstyle reports attached to commits via [jwgmeligmeyling/checkstyle-github-action](https://github.com/jwgmeligmeyling/checkstyle-github-action@master)
+- Checkstyle reports attached to commits via [jwgmeligmeyling/checkstyle-github-action](https://github.com/jwgmeligmeyling/checkstyle-github-action)
 
 
 ## Next Up
