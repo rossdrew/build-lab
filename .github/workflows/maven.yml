@@ -50,8 +50,10 @@ jobs:
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
+
       - name: Run Checkstyle
         run: mvn -B verify checkstyle:checkstyle
+
       - name: Attach Checkstyle to Commit
         uses: jwgmeligmeyling/checkstyle-github-action@master
         with:
