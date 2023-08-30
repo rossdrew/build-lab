@@ -10,7 +10,7 @@
 
     <build>
         <plugins>
-            <plugin>
+            <plugin> <!-- PITEST -->
                 <groupId>org.pitest</groupId>
                 <artifactId>pitest-maven</artifactId>
                 <version>1.14.4</version>
@@ -33,7 +33,7 @@
                 </dependencies>
             </plugin>
 
-            <plugin>
+            <plugin> <!-- JACOCO -->
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.10</version>
@@ -49,6 +49,25 @@
                         <goals>
                             <goal>report</goal>
                         </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin> <!-- Copy report site static files -->
+                <groupId>com.coderplus.maven.plugins</groupId>
+                <artifactId>copy-rename-maven-plugin</artifactId>
+                <version>1.0</version>
+                <executions>
+                    <execution>
+                        <id>copy-file</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                        <configuration>
+                            <sourceFile>src/main/resources/index.html</sourceFile>
+                            <destinationFile>target/site/index.html</destinationFile>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
