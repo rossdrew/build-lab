@@ -7,79 +7,80 @@ import java.util.List;
 public class RomanNumeral {
 <span class="fc" id="L8">    public static String ZERO = &quot;NULLA&quot;;</span>
 
-<span class="fc" id="L10">    private static String UNREPEATABLES = &quot;VLD&quot;;</span>
-<span class="fc" id="L11">    private static String SUBTRACTIVE = &quot;IXC&quot;;</span>
+    private final static String UNREPEATABLES = &quot;VLD&quot;;
+    private final static String SUBTRACTIVE = &quot;IXC&quot;;
 
     private final String numeral;
-<span class="fc" id="L14">    private int value = 0;</span>
+    private final int value;
 
     private int characterValue(final String romanCharacter){
-<span class="nc bnc" id="L17" title="All 8 branches missed.">        switch (romanCharacter){</span>
-<span class="nc" id="L18">            case &quot;I&quot;: return 1;</span>
-<span class="nc" id="L19">            case &quot;V&quot;: return 5;</span>
-<span class="nc" id="L20">            case &quot;X&quot;: return 10;</span>
-<span class="nc" id="L21">            case &quot;L&quot;: return 50;</span>
-<span class="nc" id="L22">            case &quot;C&quot;: return 100;</span>
-<span class="nc" id="L23">            case &quot;D&quot;: return 500;</span>
-<span class="nc" id="L24">            case &quot;M&quot;: return 1000;</span>
-<span class="nc" id="L25">            default: throw new InvalidNumeralException(&quot;'&quot; + romanCharacter + &quot;' is an unknown Roman numeral character&quot;);</span>
-        }
+<span class="nc bnc" id="L17" title="All 8 branches missed.">        return switch (romanCharacter) {</span>
+<span class="nc" id="L18">            case &quot;I&quot; -&gt; 1;</span>
+<span class="nc" id="L19">            case &quot;V&quot; -&gt; 5;</span>
+<span class="nc" id="L20">            case &quot;X&quot; -&gt; 10;</span>
+<span class="nc" id="L21">            case &quot;L&quot; -&gt; 50;</span>
+<span class="nc" id="L22">            case &quot;C&quot; -&gt; 100;</span>
+<span class="nc" id="L23">            case &quot;D&quot; -&gt; 500;</span>
+<span class="nc" id="L24">            case &quot;M&quot; -&gt; 1000;</span>
+            default -&gt;
+<span class="nc" id="L26">                    throw new InvalidNumeralException(&quot;'&quot; + romanCharacter + &quot;' is an unknown Roman numeral character&quot;);</span>
+        };
     }
 
-<span class="fc" id="L29">    private RomanNumeral(final String numeral){</span>
-<span class="pc bpc" id="L30" title="1 of 2 branches missed.">        if (numeral.isEmpty()){</span>
-<span class="fc" id="L31">            value = 0;</span>
-<span class="fc" id="L32">            this.numeral = ZERO;</span>
-<span class="fc" id="L33">            return;</span>
+<span class="fc" id="L30">    private RomanNumeral(final String numeral){</span>
+<span class="pc bpc" id="L31" title="1 of 2 branches missed.">        if (numeral.isEmpty()){</span>
+<span class="fc" id="L32">            value = 0;</span>
+<span class="fc" id="L33">            this.numeral = ZERO;</span>
+<span class="fc" id="L34">            return;</span>
         }else{
-<span class="nc" id="L35">            this.numeral=numeral;</span>
+<span class="nc" id="L36">            this.numeral=numeral;</span>
         }
 
         //get all the characters that are the same
-<span class="nc" id="L39">        final List&lt;Integer&gt; asIntegers = Arrays.stream(numeral.split(&quot;&quot;)).map(this::characterValue).toList();</span>
-<span class="nc" id="L40">        final List&lt;Integer&gt; reduced = new ArrayList&lt;&gt;(List.of(asIntegers.get(0)));</span>
+<span class="nc" id="L40">        final List&lt;Integer&gt; asIntegers = Arrays.stream(numeral.split(&quot;&quot;)).map(this::characterValue).toList();</span>
+<span class="nc" id="L41">        final List&lt;Integer&gt; reduced = new ArrayList&lt;&gt;(List.of(asIntegers.get(0)));</span>
 
-<span class="nc bnc" id="L42" title="All 2 branches missed.">        for (int characterIndex=1, previousValue=reduced.get(0), buildIndex=0, repetitionCount=1; characterIndex&lt;asIntegers.size(); characterIndex++){</span>
-<span class="nc" id="L43">            int subject = asIntegers.get(characterIndex);</span>
-<span class="nc bnc" id="L44" title="All 2 branches missed.">            if (subject == previousValue) {</span>
-<span class="nc bnc" id="L45" title="All 2 branches missed.">                if (UNREPEATABLES.contains(numeral.substring(characterIndex,characterIndex+1))){</span>
-<span class="nc" id="L46">                    throw new InvalidNumeralException(&quot;Repeated instance of '&quot; + numeral.substring(characterIndex,characterIndex+1) + &quot;'. V, L or D cannot be repeated.&quot;);</span>
+<span class="nc bnc" id="L43" title="All 2 branches missed.">        for (int characterIndex=1, previousValue=reduced.get(0), buildIndex=0, repetitionCount=1; characterIndex&lt;asIntegers.size(); characterIndex++){</span>
+<span class="nc" id="L44">            int subject = asIntegers.get(characterIndex);</span>
+<span class="nc bnc" id="L45" title="All 2 branches missed.">            if (subject == previousValue) {</span>
+<span class="nc bnc" id="L46" title="All 2 branches missed.">                if (UNREPEATABLES.contains(numeral.substring(characterIndex,characterIndex+1))){</span>
+<span class="nc" id="L47">                    throw new InvalidNumeralException(&quot;Repeated instance of '&quot; + numeral.charAt(characterIndex) + &quot;'. V, L or D cannot be repeated.&quot;);</span>
                 }
-<span class="nc bnc" id="L48" title="All 2 branches missed.">                if (++repetitionCount &gt; 3) {</span>
-<span class="nc" id="L49">                    throw new InvalidNumeralException(&quot;Roman characters (in this case '&quot; + numeral.charAt(characterIndex) + &quot;') cannot repeat more than 3 times&quot;);</span>
+<span class="nc bnc" id="L49" title="All 2 branches missed.">                if (++repetitionCount &gt; 3) {</span>
+<span class="nc" id="L50">                    throw new InvalidNumeralException(&quot;Roman characters (in this case '&quot; + numeral.charAt(characterIndex) + &quot;') cannot repeat more than 3 times&quot;);</span>
                 }
-<span class="nc" id="L51">                reduced.set(buildIndex, reduced.get(buildIndex) + subject);</span>
+<span class="nc" id="L52">                reduced.set(buildIndex, reduced.get(buildIndex) + subject);</span>
             }else{
-<span class="nc" id="L53">                repetitionCount = 1;</span>
+<span class="nc" id="L54">                repetitionCount = 1;</span>
                 //TODO Pitest has identified a conditional boundary mutation here!
-<span class="nc bnc" id="L55" title="All 2 branches missed.">                if (subject &gt; previousValue) {</span>
-<span class="nc bnc" id="L56" title="All 2 branches missed.">                    if (SUBTRACTIVE.contains(numeral.substring(characterIndex-1,characterIndex))) {</span>
-<span class="nc" id="L57">                        reduced.set(buildIndex, subject - reduced.get(buildIndex));</span>
+<span class="nc bnc" id="L56" title="All 2 branches missed.">                if (subject &gt; previousValue) {</span>
+<span class="nc bnc" id="L57" title="All 2 branches missed.">                    if (SUBTRACTIVE.contains(numeral.substring(characterIndex-1,characterIndex))) {</span>
+<span class="nc" id="L58">                        reduced.set(buildIndex, subject - reduced.get(buildIndex));</span>
                     }else{
-<span class="nc" id="L59">                        throw new InvalidNumeralException(&quot;Use of '&quot; + numeral.substring(characterIndex,characterIndex+1) + &quot;' as subtractive character. Only I, X and C can be used as subtractive numerals.&quot;);</span>
+<span class="nc" id="L60">                        throw new InvalidNumeralException(&quot;Use of '&quot; + numeral.charAt(characterIndex) + &quot;' as subtractive character. Only I, X and C can be used as subtractive numerals.&quot;);</span>
                     }
                 }else{
-<span class="nc" id="L62">                    reduced.add(subject);</span>
+<span class="nc" id="L63">                    reduced.add(subject);</span>
                 }
-<span class="nc" id="L64">                buildIndex++;</span>
+<span class="nc" id="L65">                buildIndex++;</span>
             }
-<span class="nc" id="L66">            previousValue = subject;</span>
+<span class="nc" id="L67">            previousValue = subject;</span>
         }
 
-<span class="nc" id="L69">        value = reduced.stream().mapToInt(i-&gt;i).sum();</span>
+<span class="nc" id="L70">        value = reduced.stream().mapToInt(i-&gt;i).sum();</span>
 
-<span class="nc" id="L71">    }</span>
+<span class="nc" id="L72">    }</span>
 
     public static RomanNumeral of(final String s) {
-<span class="fc" id="L74">        return new RomanNumeral(s);</span>
+<span class="fc" id="L75">        return new RomanNumeral(s);</span>
     }
 
     public int numericalValue() {
-<span class="fc" id="L78">        return value;</span>
+<span class="fc" id="L79">        return value;</span>
     }
 
     public String romanNotation() {
-<span class="fc" id="L82">        return numeral;</span>
+<span class="fc" id="L83">        return numeral;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>
