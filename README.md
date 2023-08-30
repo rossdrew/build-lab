@@ -12,4 +12,4 @@ A small codebase to experiment with build tools.
 
 ## Next Up
 
- ???
+- Code coverage
