@@ -36,7 +36,7 @@ jobs:
 
   style:
     runs-on: ubuntu-latest
-    name: Checkstyle Report
+    name: Code Style
     steps:
       - uses: actions/checkout@v3
       - name: Set up JDK 17
@@ -52,8 +52,8 @@ jobs:
             ${{ runner.os }}-maven-
       - name: Run Checkstyle
         run: mvn -B verify checkstyle:checkstyle
-      - uses: jwgmeligmeyling/checkstyle-github-action@master
-        name: Attach Checkstyle to Commit
+      - name: Attach Checkstyle to Commit
+        uses: jwgmeligmeyling/checkstyle-github-action@master
         with:
           path: '**/checkstyle-result.xml'
 
