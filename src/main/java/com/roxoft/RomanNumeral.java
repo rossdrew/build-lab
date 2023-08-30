@@ -7,23 +7,24 @@ import java.util.List;
 public class RomanNumeral {
     public static String ZERO = "NULLA";
 
-    private static String UNREPEATABLES = "VLD";
-    private static String SUBTRACTIVE = "IXC";
+    private final static String UNREPEATABLES = "VLD";
+    private final static String SUBTRACTIVE = "IXC";
 
     private final String numeral;
-    private int value = 0;
+    private final int value;
 
     private int characterValue(final String romanCharacter){
-        switch (romanCharacter){
-            case "I": return 1;
-            case "V": return 5;
-            case "X": return 10;
-            case "L": return 50;
-            case "C": return 100;
-            case "D": return 500;
-            case "M": return 1000;
-            default: throw new InvalidNumeralException("'" + romanCharacter + "' is an unknown Roman numeral character");
-        }
+        return switch (romanCharacter) {
+            case "I" -> 1;
+            case "V" -> 5;
+            case "X" -> 10;
+            case "L" -> 50;
+            case "C" -> 100;
+            case "D" -> 500;
+            case "M" -> 1000;
+            default ->
+                    throw new InvalidNumeralException("'" + romanCharacter + "' is an unknown Roman numeral character");
+        };
     }
 
     private RomanNumeral(final String numeral){
@@ -43,7 +44,7 @@ public class RomanNumeral {
             int subject = asIntegers.get(characterIndex);
             if (subject == previousValue) {
                 if (UNREPEATABLES.contains(numeral.substring(characterIndex,characterIndex+1))){
-                    throw new InvalidNumeralException("Repeated instance of '" + numeral.substring(characterIndex,characterIndex+1) + "'. V, L or D cannot be repeated.");
+                    throw new InvalidNumeralException("Repeated instance of '" + numeral.charAt(characterIndex) + "'. V, L or D cannot be repeated.");
                 }
                 if (++repetitionCount > 3) {
                     throw new InvalidNumeralException("Roman characters (in this case '" + numeral.charAt(characterIndex) + "') cannot repeat more than 3 times");
@@ -56,7 +57,7 @@ public class RomanNumeral {
                     if (SUBTRACTIVE.contains(numeral.substring(characterIndex-1,characterIndex))) {
                         reduced.set(buildIndex, subject - reduced.get(buildIndex));
                     }else{
-                        throw new InvalidNumeralException("Use of '" + numeral.substring(characterIndex,characterIndex+1) + "' as subtractive character. Only I, X and C can be used as subtractive numerals.");
+                        throw new InvalidNumeralException("Use of '" + numeral.charAt(characterIndex) + "' as subtractive character. Only I, X and C can be used as subtractive numerals.");
                     }
                 }else{
                     reduced.add(subject);
