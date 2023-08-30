@@ -18,6 +18,7 @@ public final class RomanNumeral {
     /** A numerical representation of the Roman numeral in question. */
     private final int value;
 
+    @SuppressWarnings("magicnumber")
     private int characterValue(final String romanCharacter) {
         return switch (romanCharacter) {
             case "I" -> 1;

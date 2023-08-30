@@ -36,10 +36,11 @@ jobs:
 
   style:
     runs-on: ubuntu-latest
+    name: Checkstyle Report
     steps:
       - uses: actions/checkout@v3
-      - name: Set up JDK 1.8
-        uses: actions/setup-java@v1
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
         with:
           java-version: '17'
           distribution: 'temurin'
@@ -61,7 +62,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Setup JDK
-        uses: actions/setup-java@v1
+        uses: actions/setup-java@v3
         with:
           java-version: '17'
           distribution: 'temurin'
