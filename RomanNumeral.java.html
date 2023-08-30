@@ -1,0 +1,1591 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>RomanNumeral.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package com.roxoft;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.ArrayList;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Arrays;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.List;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class RomanNumeral {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    public static String ZERO = &#34;NULLA&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    private static String UNREPEATABLES = &#34;VLD&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    private static String SUBTRACTIVE = &#34;IXC&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final String numeral;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    private int value = 0;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private int characterValue(final String romanCharacter){</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        switch (romanCharacter){</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_18'/>
+18
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_18'>1</a>
+<span>
+1. characterValue : replaced int return with 0 for com/roxoft/RomanNumeral::characterValue &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            case &#34;I&#34;: return 1;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_19'/>
+19
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_19'>1</a>
+<span>
+1. characterValue : replaced int return with 0 for com/roxoft/RomanNumeral::characterValue &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            case &#34;V&#34;: return 5;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_20'/>
+20
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_20'>1</a>
+<span>
+1. characterValue : replaced int return with 0 for com/roxoft/RomanNumeral::characterValue &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            case &#34;X&#34;: return 10;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_21'/>
+21
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_21'>1</a>
+<span>
+1. characterValue : replaced int return with 0 for com/roxoft/RomanNumeral::characterValue &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            case &#34;L&#34;: return 50;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_22'/>
+22
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_22'>1</a>
+<span>
+1. characterValue : replaced int return with 0 for com/roxoft/RomanNumeral::characterValue &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            case &#34;C&#34;: return 100;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_23'/>
+23
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_23'>1</a>
+<span>
+1. characterValue : replaced int return with 0 for com/roxoft/RomanNumeral::characterValue &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            case &#34;D&#34;: return 500;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_24'/>
+24
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_24'>1</a>
+<span>
+1. characterValue : replaced int return with 0 for com/roxoft/RomanNumeral::characterValue &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            case &#34;M&#34;: return 1000;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            default: throw new InvalidNumeralException(&#34;&#39;&#34; + romanCharacter + &#34;&#39; is an unknown Roman numeral character&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    private RomanNumeral(final String numeral){</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_30'/>
+30
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_30'>1</a>
+<span>
+1. &#60;init&#62; : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (numeral.isEmpty()){</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            value = 0;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            this.numeral = ZERO;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            return;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }else{</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            this.numeral=numeral;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        //get all the characters that are the same</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        final List&#60;Integer&#62; asIntegers = Arrays.stream(numeral.split(&#34;&#34;)).map(this::characterValue).toList();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_40'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        final List&#60;Integer&#62; reduced = new ArrayList&#60;&#62;(List.of(asIntegers.get(0)));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_41'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_42'/>
+42
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_42'>2</a>
+<span>
+1. &#60;init&#62; : changed conditional boundary &rarr; KILLED<br/>
+2. &#60;init&#62; : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        for (int characterIndex=1, previousValue=reduced.get(0), buildIndex=0, repetitionCount=1; characterIndex&#60;asIntegers.size(); characterIndex++){</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            int subject = asIntegers.get(characterIndex);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_44'/>
+44
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_44'>1</a>
+<span>
+1. &#60;init&#62; : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (subject == previousValue) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_45'/>
+45
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_45'>2</a>
+<span>
+1. &#60;init&#62; : negated conditional &rarr; KILLED<br/>
+2. &#60;init&#62; : Replaced integer addition with subtraction &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                if (UNREPEATABLES.contains(numeral.substring(characterIndex,characterIndex+1))){</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_46'/>
+46
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_46'>1</a>
+<span>
+1. &#60;init&#62; : Replaced integer addition with subtraction &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                    throw new InvalidNumeralException(&#34;Repeated instance of &#39;&#34; + numeral.substring(characterIndex,characterIndex+1) + &#34;&#39;. V, L or D cannot be repeated.&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_47'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_48'/>
+48
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_48'>3</a>
+<span>
+1. &#60;init&#62; : negated conditional &rarr; KILLED<br/>
+2. &#60;init&#62; : Changed increment from 1 to -1 &rarr; KILLED<br/>
+3. &#60;init&#62; : changed conditional boundary &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                if (++repetitionCount &#62; 3) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_49'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                    throw new InvalidNumeralException(&#34;Roman characters (in this case &#39;&#34; + numeral.charAt(characterIndex) + &#34;&#39;) cannot repeat more than 3 times&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_50'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_51'/>
+51
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_51'>1</a>
+<span>
+1. &#60;init&#62; : Replaced integer addition with subtraction &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                reduced.set(buildIndex, reduced.get(buildIndex) + subject);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_52'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }else{</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_53'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                repetitionCount = 1;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_54'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                //TODO Pitest has identified a conditional boundary mutation here!</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_55'/>
+55
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_55'>2</a>
+<span>
+1. &#60;init&#62; : changed conditional boundary &rarr; SURVIVED<br/>
+2. &#60;init&#62; : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                if (subject &#62; previousValue) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_56'/>
+56
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_56'>2</a>
+<span>
+1. &#60;init&#62; : Replaced integer subtraction with addition &rarr; KILLED<br/>
+2. &#60;init&#62; : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                    if (SUBTRACTIVE.contains(numeral.substring(characterIndex-1,characterIndex))) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_57'/>
+57
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_57'>1</a>
+<span>
+1. &#60;init&#62; : Replaced integer subtraction with addition &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                        reduced.set(buildIndex, subject - reduced.get(buildIndex));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_58'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                    }else{</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_59'/>
+59
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_59'>1</a>
+<span>
+1. &#60;init&#62; : Replaced integer addition with subtraction &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                        throw new InvalidNumeralException(&#34;Use of &#39;&#34; + numeral.substring(characterIndex,characterIndex+1) + &#34;&#39; as subtractive character. Only I, X and C can be used as subtractive numerals.&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_60'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_61'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                }else{</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_62'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                    reduced.add(subject);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_63'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_64'/>
+64
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_64'>1</a>
+<span>
+1. &#60;init&#62; : Changed increment from 1 to -1 &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                buildIndex++;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_65'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_66'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            previousValue = subject;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_67'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_68'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_69'/>
+69
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_69'>1</a>
+<span>
+1. lambda$new$0 : replaced int return with 0 for com/roxoft/RomanNumeral::lambda$new$0 &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        value = reduced.stream().mapToInt(i-&#62;i).sum();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_70'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_71'/>
+71
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_71'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_72'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_73'/>
+73
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_73'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static RomanNumeral of(final String s) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_74'/>
+74
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_74'>1</a>
+<span>
+1. of : replaced return value with null for com/roxoft/RomanNumeral::of &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return new RomanNumeral(s);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_75'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_76'/>
+76
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_76'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_77'/>
+77
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_77'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public int numericalValue() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_78'/>
+78
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_78'>1</a>
+<span>
+1. numericalValue : replaced int return with 0 for com/roxoft/RomanNumeral::numericalValue &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return value;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_79'/>
+79
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_79'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_80'/>
+80
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_80'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_81'/>
+81
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_81'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public String romanNotation() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_82'/>
+82
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_82'>1</a>
+<span>
+1. romanNotation : replaced return value with &#34;&#34; for com/roxoft/RomanNumeral::romanNotation &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return numeral;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_83'/>
+83
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_83'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7204d98f_84'/>
+84
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_84'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7204d98f_18'>18</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_18'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>characterValue<br/><b>Killed by : </b>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleNumbers(java.lang.String, int)]/[test-template-invocation:#1]</span></span> replaced int return with 0 for com/roxoft/RomanNumeral::characterValue &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7204d98f_19'>19</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_19'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>characterValue<br/><b>Killed by : </b>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleNumbers(java.lang.String, int)]/[test-template-invocation:#2]</span></span> replaced int return with 0 for com/roxoft/RomanNumeral::characterValue &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7204d98f_20'>20</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_20'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>characterValue<br/><b>Killed by : </b>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleNumbers(java.lang.String, int)]/[test-template-invocation:#3]</span></span> replaced int return with 0 for com/roxoft/RomanNumeral::characterValue &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7204d98f_21'>21</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_21'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>characterValue<br/><b>Killed by : </b>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#9]</span></span> replaced int return with 0 for com/roxoft/RomanNumeral::characterValue &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7204d98f_22'>22</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_22'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>characterValue<br/><b>Killed by : </b>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#13]</span></span> replaced int return with 0 for com/roxoft/RomanNumeral::characterValue &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7204d98f_23'>23</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_23'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>characterValue<br/><b>Killed by : </b>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#14]</span></span> replaced int return with 0 for com/roxoft/RomanNumeral::characterValue &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7204d98f_24'>24</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_24'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>characterValue<br/><b>Killed by : </b>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#16]</span></span> replaced int return with 0 for com/roxoft/RomanNumeral::characterValue &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7204d98f_30'>30</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_30'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[method:testEmpty()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7204d98f_42'>42</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_42'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleNumbers(java.lang.String, int)]/[test-template-invocation:#2]</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#5]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7204d98f_44'>44</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_44'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#5]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7204d98f_45'>45</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_45'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#5]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#5]</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7204d98f_46'>46</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_46'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#4]</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7204d98f_48'>48</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_48'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRepeatedNumerals(java.lang.String, int)]/[test-template-invocation:#3]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#3]</span></span> Changed increment from 1 to -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRepeatedNumerals(java.lang.String, int)]/[test-template-invocation:#2]</span></span> changed conditional boundary &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7204d98f_51'>51</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_51'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRepeatedNumerals(java.lang.String, int)]/[test-template-invocation:#3]</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7204d98f_55'>55</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_55'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#16]</span></span> negated conditional &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7204d98f_56'>56</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_56'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#16]</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#16]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7204d98f_57'>57</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_57'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleSubtraction(java.lang.String, int)]/[test-template-invocation:#6]</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7204d98f_59'>59</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_59'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#16]</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7204d98f_64'>64</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_64'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleAddition(java.lang.String, int)]/[test-template-invocation:#4]</span></span> Changed increment from 1 to -1 &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7204d98f_69'>69</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_69'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>lambda$new$0<br/><b>Killed by : </b>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleNumbers(java.lang.String, int)]/[test-template-invocation:#3]</span></span> replaced int return with 0 for com/roxoft/RomanNumeral::lambda$new$0 &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7204d98f_74'>74</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_74'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>of<br/><b>Killed by : </b>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[method:testEmpty()]</span></span> replaced return value with null for com/roxoft/RomanNumeral::of &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7204d98f_78'>78</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_78'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>numericalValue<br/><b>Killed by : </b>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleNumbers(java.lang.String, int)]/[test-template-invocation:#3]</span></span> replaced int return with 0 for com/roxoft/RomanNumeral::numericalValue &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7204d98f_82'>82</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7204d98f_82'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>romanNotation<br/><b>Killed by : </b>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[method:testEmpty()]</span></span> replaced return value with &#34;&#34; for com/roxoft/RomanNumeral::romanNotation &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+<li class='mutator'>EMPTY_RETURNS</li>
+<li class='mutator'>FALSE_RETURNS</li>
+<li class='mutator'>INCREMENTS</li>
+<li class='mutator'>INVERT_NEGS</li>
+<li class='mutator'>MATH</li>
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+<li class='mutator'>NULL_RETURNS</li>
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+<li class='mutator'>TRUE_RETURNS</li>
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleAddition(java.lang.String, int)]/[test-template-invocation:#3] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#16] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#14] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleNumbers(java.lang.String, int)]/[test-template-invocation:#4] (12 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#12] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleNumbers(java.lang.String, int)]/[test-template-invocation:#2] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#10] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleNumbers(java.lang.String, int)]/[test-template-invocation:#6] (5 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleAddition(java.lang.String, int)]/[test-template-invocation:#1] (44 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleSubtraction(java.lang.String, int)]/[test-template-invocation:#5] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleSubtraction(java.lang.String, int)]/[test-template-invocation:#3] (3 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleSubtraction(java.lang.String, int)]/[test-template-invocation:#1] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#8] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRepeatedNumerals(java.lang.String, int)]/[test-template-invocation:#2] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#5] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#2] (6 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#7] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRepeatedNumerals(java.lang.String, int)]/[test-template-invocation:#4] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#4] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#16] (1 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#9] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#6] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#18] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleSubtraction(java.lang.String, int)]/[test-template-invocation:#7] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#12] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#14] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#1] (2 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#10] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#3] (1 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleAddition(java.lang.String, int)]/[test-template-invocation:#4] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#15] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#13] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleNumbers(java.lang.String, int)]/[test-template-invocation:#3] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#11] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleNumbers(java.lang.String, int)]/[test-template-invocation:#1] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[method:testEmpty()] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleNumbers(java.lang.String, int)]/[test-template-invocation:#7] (1 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleNumbers(java.lang.String, int)]/[test-template-invocation:#5] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleAddition(java.lang.String, int)]/[test-template-invocation:#2] (1 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleSubtraction(java.lang.String, int)]/[test-template-invocation:#6] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleSubtraction(java.lang.String, int)]/[test-template-invocation:#4] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleSubtraction(java.lang.String, int)]/[test-template-invocation:#2] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#20] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#9] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRepeatedNumerals(java.lang.String, int)]/[test-template-invocation:#3] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRepeatedNumerals(java.lang.String, int)]/[test-template-invocation:#1] (1 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#1] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#19] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#6] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#3] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#8] (1 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#5] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#15] (7 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleSubtraction(java.lang.String, int)]/[test-template-invocation:#8] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#17] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#7] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#11] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#13] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#2] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#4] (0 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.14.4
+
+</body>
+</html>
