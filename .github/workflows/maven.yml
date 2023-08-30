@@ -52,7 +52,7 @@ jobs:
           restore-keys: ${{ runner.os }}-maven-
 
       - name: Run Mutation Testing
-        run: mvn test-compile org.pitest:pitest-maven:mutationCoverage
+        run: mvn package org.pitest:pitest-maven:mutationCoverage
 
       - name: Deploy Mutation Report
         uses: peaceiris/actions-gh-pages@v3.9.3
