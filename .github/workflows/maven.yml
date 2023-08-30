@@ -53,6 +53,7 @@ jobs:
       - name: Run Checkstyle
         run: mvn -B verify checkstyle:checkstyle
       - uses: jwgmeligmeyling/checkstyle-github-action@master
+        name: Attach Checkstyle to Commit
         with:
           path: '**/checkstyle-result.xml'
 
