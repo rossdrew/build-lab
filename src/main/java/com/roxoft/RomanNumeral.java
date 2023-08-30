@@ -4,16 +4,21 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class RomanNumeral {
-    public static String ZERO = "NULLA";
+public final class RomanNumeral {
+    /** Roman notation for ZERO. */
+    public static final String ZERO = "NULLA";
 
-    private final static String UNREPEATABLES = "VLD";
-    private final static String SUBTRACTIVE = "IXC";
+    /** Characters which cannot be repeated in a Roman numeral. */
+    private static final String UNREPEATABLES = "VLD";
+    /** Characters which can be used as a subtractive in a Roman numeral. */
+    private static final String SUBTRACTIVE = "IXC";
 
+    /** The Roman numeral String in question. */
     private final String numeral;
+    /** A numerical representation of the Roman numeral in question. */
     private final int value;
 
-    private int characterValue(final String romanCharacter){
+    private int characterValue(final String romanCharacter) {
         return switch (romanCharacter) {
             case "I" -> 1;
             case "V" -> 5;
@@ -23,43 +28,52 @@ public class RomanNumeral {
             case "D" -> 500;
             case "M" -> 1000;
             default ->
-                    throw new InvalidNumeralException("'" + romanCharacter + "' is an unknown Roman numeral character");
+                    throw new InvalidNumeralException("'"
+                            + romanCharacter
+                            + "' is an unknown Roman numeral character"
+                    );
         };
     }
 
-    private RomanNumeral(final String numeral){
-        if (numeral.isEmpty()){
+    private RomanNumeral(final String numeralString) {
+        if (numeralString.isEmpty()) {
             value = 0;
             this.numeral = ZERO;
             return;
-        }else{
-            this.numeral=numeral;
+        } else {
+            this.numeral = numeralString;
         }
 
         //get all the characters that are the same
-        final List<Integer> asIntegers = Arrays.stream(numeral.split("")).map(this::characterValue).toList();
+        final List<Integer> asIntegers = Arrays.stream(numeralString.split(""))
+                .map(this::characterValue)
+                .toList();
         final List<Integer> reduced = new ArrayList<>(List.of(asIntegers.get(0)));
 
-        for (int characterIndex=1, previousValue=reduced.get(0), buildIndex=0, repetitionCount=1; characterIndex<asIntegers.size(); characterIndex++){
+        for (int characterIndex = 1,
+             previousValue = reduced.get(0),
+             buildIndex = 0,
+             repetitionCount = 1;
+             characterIndex < asIntegers.size(); characterIndex++) {
             int subject = asIntegers.get(characterIndex);
             if (subject == previousValue) {
-                if (UNREPEATABLES.contains(numeral.substring(characterIndex,characterIndex+1))){
-                    throw new InvalidNumeralException("Repeated instance of '" + numeral.charAt(characterIndex) + "'. V, L or D cannot be repeated.");
+                if (UNREPEATABLES.contains(numeralString.substring(characterIndex, characterIndex + 1))) {
+                    throw new InvalidNumeralException("Repeated instance of '" + numeralString.charAt(characterIndex) + "'. V, L or D cannot be repeated.");
                 }
                 if (++repetitionCount > 3) {
-                    throw new InvalidNumeralException("Roman characters (in this case '" + numeral.charAt(characterIndex) + "') cannot repeat more than 3 times");
+                    throw new InvalidNumeralException("Roman characters (in this case '" + numeralString.charAt(characterIndex) + "') cannot repeat more than 3 times");
                 }
                 reduced.set(buildIndex, reduced.get(buildIndex) + subject);
-            }else{
+            } else {
                 repetitionCount = 1;
                 //TODO Pitest has identified a conditional boundary mutation here!
                 if (subject > previousValue) {
-                    if (SUBTRACTIVE.contains(numeral.substring(characterIndex-1,characterIndex))) {
+                    if (SUBTRACTIVE.contains(numeralString.substring(characterIndex - 1, characterIndex))) {
                         reduced.set(buildIndex, subject - reduced.get(buildIndex));
-                    }else{
-                        throw new InvalidNumeralException("Use of '" + numeral.charAt(characterIndex) + "' as subtractive character. Only I, X and C can be used as subtractive numerals.");
+                    } else {
+                        throw new InvalidNumeralException("Use of '" + numeralString.charAt(characterIndex) + "' as subtractive character. Only I, X and C can be used as subtractive numerals.");
                     }
-                }else{
+                } else {
                     reduced.add(subject);
                 }
                 buildIndex++;
@@ -67,18 +81,24 @@ public class RomanNumeral {
             previousValue = subject;
         }
 
-        value = reduced.stream().mapToInt(i->i).sum();
+        value = reduced.stream().mapToInt(i -> i).sum();
 
     }
 
-    public static RomanNumeral of(final String s) {
-        return new RomanNumeral(s);
+    /**
+     * @param numeralString a Roman numeral String.
+     * @return a {@link RomanNumeral} of the provided String.
+     */
+    public static RomanNumeral of(final String numeralString) {
+        return new RomanNumeral(numeralString);
     }
 
+    /** @return the numerical value of this Roman numeral. */
     public int numericalValue() {
         return value;
     }
 
+    /** @return the String representation of this Roman numeral. */
     public String romanNotation() {
         return numeral;
     }
