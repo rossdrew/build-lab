@@ -73,10 +73,6 @@
                         <goals>
                             <goal>copy</goal>
                         </goals>
-                        <configuration>
-                            <sourceFile>src/main/resources/index.html</sourceFile>
-                            <destinationFile>target/site/index.html</destinationFile>
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>
