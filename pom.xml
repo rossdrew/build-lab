@@ -53,6 +53,15 @@
                 </executions>
             </plugin>
 
+            <plugin> <!-- Checkstyle -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <suppressionsLocation>suppressions.xml</suppressionsLocation>
+                </configuration>
+            </plugin>
+
             <plugin> <!-- Copy report site static files -->
                 <groupId>com.coderplus.maven.plugins</groupId>
                 <artifactId>copy-rename-maven-plugin</artifactId>
@@ -70,15 +79,6 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>3.3.0</version>
-                <configuration>
-                    <suppressionsLocation>suppressions.xml</suppressionsLocation>
-                </configuration>
             </plugin>
         </plugins>
     </build>
