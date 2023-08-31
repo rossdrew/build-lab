@@ -113,6 +113,7 @@ jobs:
   deploy-github-pages:
     runs-on: ubuntu-latest
     name: Deploy Reports to GitHub Pages
+    needs: [style, coverage]
     steps:
       - uses: actions/download-artifact@v3.0.2
         with:
