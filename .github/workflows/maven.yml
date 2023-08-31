@@ -101,7 +101,8 @@ jobs:
 #          name: checkstyle-output
 #          path: ./target/site
 
-      - uses: actions/upload-artifact@v3.1.2
+      - name: Store coverage artefacts
+        uses: actions/upload-artifact@v3.1.2
         with:
           name: coverage-output
           path: |
