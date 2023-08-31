@@ -30,7 +30,8 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
-    - uses: actions/upload-artifact@v3.1.2
+    - name: Store GitHub pages index
+      uses: actions/upload-artifact@v3.1.2
       with:
         name: github-pages-index
         path: |
@@ -51,6 +52,7 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
+
       - uses: actions/cache@v3
         with:
           path: ~/.m2/repository
@@ -67,7 +69,8 @@ jobs:
         with:
           path: '**/checkstyle-result.xml'
 
-      - uses: actions/upload-artifact@v3.1.2
+      - name: Store style report
+        uses: actions/upload-artifact@v3.1.2
         with:
           name: checkstyle-output
           path: |
@@ -93,7 +96,7 @@ jobs:
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-maven-
 
-      - name: Run Mutation Testing
+      - name: Run Code Coverage & Mutation Testing
         run: mvn package org.pitest:pitest-maven:mutationCoverage jacoco:report
 
 #      - uses: actions/download-artifact@v3.0.2
@@ -123,22 +126,26 @@ jobs:
     name: Deploy Reports to GitHub Pages
     needs: [style, coverage]
     steps:
-      - uses: actions/download-artifact@v3.0.2
-        with:
-          name: checkstyle-output
-          path: ./target/site
-
-      - uses: actions/download-artifact@v3.0.2
-        with:
-          name: coverage-output
-          path: ./target/site
-
+      - name: Get GitHub pages index
       - uses: actions/download-artifact@v3.0.2
         with:
           name: github-pages-index
           path: ./target/site
 
-      - uses: peaceiris/actions-gh-pages@v3.9.3
+      - name: Get style report
+        uses: actions/download-artifact@v3.0.2
+        with:
+          name: checkstyle-output
+          path: ./target/site
+
+      - name: Get coverage report
+        uses: actions/download-artifact@v3.0.2
+        with:
+          name: coverage-output
+          path: ./target/site
+
+      - name: Publish GitHub pages
+        uses: peaceiris/actions-gh-pages@v3.9.3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
