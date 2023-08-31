@@ -96,11 +96,6 @@ jobs:
       - name: Run Mutation Testing
         run: mvn package org.pitest:pitest-maven:mutationCoverage jacoco:report
 
-      #      - uses: actions/download-artifact@v3.0.2
-      #        with:
-      #          name: checkstyle-output
-      #          path: ./target/site
-
       - name: Store coverage artefacts
         uses: actions/upload-artifact@v3.1.2
         with:
@@ -109,14 +104,6 @@ jobs:
             ./target/site/pit
             ./target/site/jacoco
           retention-days: 1
-
-  #      - name: Deploy Mutation Report
-  #        uses: peaceiris/actions-gh-pages@v3.9.3
-  #        with:
-  #          github_token: ${{ secrets.GITHUB_TOKEN }}
-  #          publish_branch: gh-pages
-  #          publish_dir: ./target/site/
-  #          commit_message: ${{ github.event.head_commit.message }}
 
   deploy-github-pages:
     runs-on: ubuntu-latest
