@@ -49,40 +49,39 @@ public final class RomanNumeral {
         final List<Integer> asIntegers = Arrays.stream(numeralString.split(""))
                 .map(this::characterValue)
                 .toList();
-        final List<Integer> reduced = new ArrayList<>(List.of(asIntegers.get(0)));
+        final List<Integer> reducedValues = new ArrayList<>(List.of(asIntegers.get(0)));
 
         for (int characterIndex = 1,
-             previousValue = reduced.get(0),
-             buildIndex = 0,
+             previousValue = reducedValues.get(0),
+             reducedValueBuildIndex = 0,
              repetitionCount = 1;
              characterIndex < asIntegers.size(); characterIndex++) {
             int subject = asIntegers.get(characterIndex);
-            if (subject == previousValue) {
+
+            if (subject > previousValue){
+                repetitionCount = 1;
+                if (SUBTRACTIVE.contains(numeralString.substring(characterIndex - 1, characterIndex))) {
+                    reducedValues.set(reducedValueBuildIndex, subject - reducedValues.get(reducedValueBuildIndex));
+                } else {
+                    throw new InvalidNumeralException("Use of '" + numeralString.charAt(characterIndex) + "' as subtractive character. Only I, X and C can be used as subtractive numerals.");
+                }
+            }else if (subject == previousValue) {
                 if (UNREPEATABLES.contains(numeralString.substring(characterIndex, characterIndex + 1))) {
                     throw new InvalidNumeralException("Repeated instance of '" + numeralString.charAt(characterIndex) + "'. V, L or D cannot be repeated.");
                 }
                 if (++repetitionCount > 3) {
                     throw new InvalidNumeralException("Roman characters (in this case '" + numeralString.charAt(characterIndex) + "') cannot repeat more than 3 times");
                 }
-                reduced.set(buildIndex, reduced.get(buildIndex) + subject);
+                reducedValues.set(reducedValueBuildIndex, reducedValues.get(reducedValueBuildIndex) + subject);
             } else {
                 repetitionCount = 1;
-                //TODO Pitest has identified a conditional boundary mutation here!
-                if (subject > previousValue) {
-                    if (SUBTRACTIVE.contains(numeralString.substring(characterIndex - 1, characterIndex))) {
-                        reduced.set(buildIndex, subject - reduced.get(buildIndex));
-                    } else {
-                        throw new InvalidNumeralException("Use of '" + numeralString.charAt(characterIndex) + "' as subtractive character. Only I, X and C can be used as subtractive numerals.");
-                    }
-                } else {
-                    reduced.add(subject);
-                }
-                buildIndex++;
+                reducedValues.add(subject);
+                reducedValueBuildIndex++;
             }
             previousValue = subject;
         }
 
-        value = reduced.stream().mapToInt(i -> i).sum();
+        value = reducedValues.stream().mapToInt(i -> i).sum();
 
     }
 
