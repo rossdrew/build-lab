@@ -87,8 +87,8 @@ jobs:
           restore-keys: ${{ runner.os }}-maven-
 
       - name: Run Mutation Testing
-#        run: mvn package org.pitest:pitest-maven:mutationCoverage jacoco:report
-#
+        run: mvn package org.pitest:pitest-maven:mutationCoverage jacoco:report
+
 #      - uses: actions/download-artifact@v3.0.2
 #        with:
 #          name: checkstyle-output
