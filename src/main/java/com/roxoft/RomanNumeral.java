@@ -58,7 +58,7 @@ public final class RomanNumeral {
              characterIndex < asIntegers.size(); characterIndex++) {
             int subject = asIntegers.get(characterIndex);
 
-            if (subject > previousValue){
+            if (subject > previousValue) {
                 repetitionCount = 1;
                 if (SUBTRACTIVE.contains(numeralString.substring(characterIndex - 1, characterIndex))) {
                     reducedValues.set(reducedValueBuildIndex, subject - reducedValues.get(reducedValueBuildIndex));
