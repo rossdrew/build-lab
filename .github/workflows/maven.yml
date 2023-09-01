@@ -99,7 +99,7 @@ jobs:
       - name: Publish Pitest Report
         uses: Bonajo/pitest-report-action@v0.4
         with:
-          file: ./target/pit/mutations.xml
+          file: ./target/site/pit/mutations.xml
 
       - name: Store coverage artefacts
         uses: actions/upload-artifact@v3.1.2
