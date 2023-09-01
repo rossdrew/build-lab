@@ -65,7 +65,7 @@ public final class RomanNumeral {
                 } else {
 <span class="nc" id="L66">                    throw new InvalidNumeralException(&quot;Use of '&quot; + numeralString.charAt(characterIndex) + &quot;' as subtractive character. Only I, X and C can be used as subtractive numerals.&quot;);</span>
                 }
-<span class="nc bnc" id="L68" title="All 2 branches missed.">            }else if (subject == previousValue) {</span>
+<span class="nc bnc" id="L68" title="All 2 branches missed.">            } else if (subject == previousValue) {</span>
 <span class="nc bnc" id="L69" title="All 2 branches missed.">                if (UNREPEATABLES.contains(numeralString.substring(characterIndex, characterIndex + 1))) {</span>
 <span class="nc" id="L70">                    throw new InvalidNumeralException(&quot;Repeated instance of '&quot; + numeralString.charAt(characterIndex) + &quot;'. V, L or D cannot be repeated.&quot;);</span>
                 }
