@@ -65,7 +65,7 @@ public final class RomanNumeral {
                 } else {
                     throw new InvalidNumeralException("Use of '" + numeralString.charAt(characterIndex) + "' as subtractive character. Only I, X and C can be used as subtractive numerals.");
                 }
-            }else if (subject == previousValue) {
+            } else if (subject == previousValue) {
                 if (UNREPEATABLES.contains(numeralString.substring(characterIndex, characterIndex + 1))) {
                     throw new InvalidNumeralException("Repeated instance of '" + numeralString.charAt(characterIndex) + "'. V, L or D cannot be repeated.");
                 }
