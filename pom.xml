@@ -22,6 +22,7 @@
                         <param>com.roxoft*</param>
                     </targetTests>
                     <reportsDirectory>target/site/pit</reportsDirectory>
+                    <outputFormats>HTML,XML</outputFormats>
                 </configuration>
 
                 <dependencies>
