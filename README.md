@@ -15,4 +15,4 @@ A small codebase to experiment with build tools.
 
 
 ## Next Up
-- Pitest attached to commits
+- Pitest attached to commits, evaluating [Bonajo/pitest-report-action](https://github.com/Bonajo/pitest-report-action)
