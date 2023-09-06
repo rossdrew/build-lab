@@ -1,6 +1,6 @@
-package com.roxoft.test.com.roxoft.aoc.y2015;
+package com.roxoft.aoc.y2015;
 
-import com.roxoft.test.com.roxoft.aoc.UnexpectedSolutionException;
+import com.roxoft.aoc.UnexpectedSolutionException;
 
 import java.util.Arrays;
 import java.util.List;

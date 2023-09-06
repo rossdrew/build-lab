@@ -1,4 +1,4 @@
-package com.roxoft.test.com.roxoft.aoc;
+package com.roxoft.aoc;
 
 public class UnexpectedSolutionException extends RuntimeException {
     /**

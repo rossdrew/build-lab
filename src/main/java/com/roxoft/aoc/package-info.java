@@ -5,4 +5,4 @@
  * @author rossdrew
  * @version 0.1
  */
-package com.roxoft.test.com.roxoft.aoc;
+package com.roxoft.aoc;
