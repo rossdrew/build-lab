@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Day2.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">build-lab</a> &gt; <a href="index.source.html" class="el_package">com.roxoft.aoc.y2015.Day2</a> &gt; <span class="el_source">Day2.java</span></div><h1>Day2.java</h1><pre class="source lang-java linenums">package com.roxoft.aoc.y2015.Day2;
+
+import java.util.Objects;
+import java.util.stream.Stream;
+
+public final class Day2 {
+    /** Length of box. */
+    private final int l;
+    /** Width of box. */
+    private final int w;
+    /** Height of box. */
+    private final int h;
+
+    /** Surface area of side A. */
+    private final int sideA;
+    /** Surface area of side B. */
+    private final int sideB;
+    /** Surface area of side C. */
+    private final int sideC;
+
+    private Day2(final int length,
+                 final int width,
+<span class="nc" id="L23">                 final int height) {</span>
+<span class="nc" id="L24">        l = length;</span>
+<span class="nc" id="L25">        w = width;</span>
+<span class="nc" id="L26">        h = height;</span>
+
+<span class="nc" id="L28">        sideA = (l * w);</span>
+<span class="nc" id="L29">        sideB = (w * h);</span>
+<span class="nc" id="L30">        sideC = (h * l);</span>
+<span class="nc" id="L31">    }</span>
+
+    /**
+     * @param length of box.
+     * @param width of box.
+     * @param height of box.
+     *
+     * @return a {@link Day2} object based on a box with the specifications provided.
+     */
+    public static Day2 of(final int length,
+                          final int width,
+                          final int height) {
+<span class="nc" id="L43">        return new Day2(length, width, height);</span>
+    }
+
+    /**
+     * @return surface area of the box.
+     */
+    public int getSurfaceArea() {
+<span class="nc" id="L50">        return 2 * (sideA + sideB + sideC);</span>
+    }
+
+    /**
+     * @return the required wrapping paper in square feet {@link #getSurfaceArea()} with &quot;a little extra&quot;.
+     */
+    public int getRequiredWrappingPaper() {
+<span class="nc" id="L57">        return getSurfaceArea() + Stream.of(sideA, sideB, sideC).min(Integer::compare).get();</span>
+    }
+
+    /**
+     * @return the amount of ribbon needed to wrap the present in feet.
+     */
+    public int getRequiredRibbonToWrap() {
+<span class="nc" id="L64">        return Stream.of(l, w, h)</span>
+<span class="nc" id="L65">                .mapToInt(i -&gt; i)</span>
+<span class="nc" id="L66">                .sorted()</span>
+<span class="nc" id="L67">                .limit(2)</span>
+<span class="nc" id="L68">                .sum() * 2;</span>
+    }
+
+    /**
+     * @return the amount of ribbon required to make a bow in feet.
+     */
+    public int getRequiredRibbonToMakeBow() {
+<span class="nc" id="L75">        return l * w * h;</span>
+    }
+
+    /**
+     * @return the required ribbon to wrap a present ({@link #getRequiredRibbonToWrap()}) and make a
+     * bow ({@link #getRequiredRibbonToMakeBow()}).
+     */
+    public int getRequiredRibbon() {
+<span class="nc" id="L83">        return getRequiredRibbonToWrap() + getRequiredRibbonToMakeBow();</span>
+    }
+
+    @Override
+    public boolean equals(final Object o) {
+<span class="nc bnc" id="L88" title="All 2 branches missed.">        if (this == o) {</span>
+<span class="nc" id="L89">            return true;</span>
+        }
+<span class="nc bnc" id="L91" title="All 4 branches missed.">        if (o == null || getClass() != o.getClass()) {</span>
+<span class="nc" id="L92">            return false;</span>
+        }
+<span class="nc" id="L94">        Day2 day2 = (Day2) o;</span>
+<span class="nc bnc" id="L95" title="All 6 branches missed.">        return l == day2.l &amp;&amp; w == day2.w &amp;&amp; h == day2.h;</span>
+    }
+
+    @Override
+    public int hashCode() {
+<span class="nc" id="L100">        return Objects.hash(l, w, h);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>
