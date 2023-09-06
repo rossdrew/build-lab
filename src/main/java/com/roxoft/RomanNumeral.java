@@ -29,7 +29,7 @@ public final class RomanNumeral {
             case "D" -> 500;
             case "M" -> 1000;
             default ->
-                    throw new InvalidNumeralException("'"
+                    throw new InvalidRomanNumeralException("'"
                             + romanCharacter
                             + "' is an unknown Roman numeral character"
                     );
@@ -63,14 +63,14 @@ public final class RomanNumeral {
                 if (SUBTRACTIVE.contains(numeralString.substring(characterIndex - 1, characterIndex))) {
                     calculatedValues.set(calculatedValueIndex, subject - calculatedValues.get(calculatedValueIndex));
                 } else {
-                    throw new InvalidNumeralException("Use of '" + numeralString.charAt(characterIndex) + "' as subtractive character. Only I, X and C can be used as subtractive numerals.");
+                    throw new InvalidRomanNumeralException("Use of '" + numeralString.charAt(characterIndex) + "' as subtractive character. Only I, X and C can be used as subtractive numerals.");
                 }
             } else if (subject == previousValue) {
                 if (UNREPEATABLES.contains(numeralString.substring(characterIndex, characterIndex + 1))) {
-                    throw new InvalidNumeralException("Repeated instance of '" + numeralString.charAt(characterIndex) + "'. V, L or D cannot be repeated.");
+                    throw new InvalidRomanNumeralException("Repeated instance of '" + numeralString.charAt(characterIndex) + "'. V, L or D cannot be repeated.");
                 }
                 if (++characterRepetitionCount > 3) {
-                    throw new InvalidNumeralException("Roman characters (in this case '" + numeralString.charAt(characterIndex) + "') cannot repeat more than 3 times");
+                    throw new InvalidRomanNumeralException("Roman characters (in this case '" + numeralString.charAt(characterIndex) + "') cannot repeat more than 3 times");
                 }
                 calculatedValues.set(calculatedValueIndex, calculatedValues.get(calculatedValueIndex) + subject);
             } else {
