@@ -49,19 +49,19 @@ public final class RomanNumeral {
         final List<Integer> asIntegers = Arrays.stream(numeralString.split(""))
                 .map(this::characterValue)
                 .toList();
-        final List<Integer> reducedValues = new ArrayList<>(List.of(asIntegers.get(0)));
+        final List<Integer> calculatedValues = new ArrayList<>(List.of(asIntegers.get(0)));
 
         for (int characterIndex = 1,
-             previousValue = reducedValues.get(0),
-             reducedValueBuildIndex = 0,
-             repetitionCount = 1;
+             previousValue = calculatedValues.get(0),
+             calculatedValueIndex = 0,
+             characterRepetitionCount = 1;
              characterIndex < asIntegers.size(); characterIndex++) {
             int subject = asIntegers.get(characterIndex);
 
             if (subject > previousValue) {
-                repetitionCount = 1;
+                characterRepetitionCount = 1;
                 if (SUBTRACTIVE.contains(numeralString.substring(characterIndex - 1, characterIndex))) {
-                    reducedValues.set(reducedValueBuildIndex, subject - reducedValues.get(reducedValueBuildIndex));
+                    calculatedValues.set(calculatedValueIndex, subject - calculatedValues.get(calculatedValueIndex));
                 } else {
                     throw new InvalidNumeralException("Use of '" + numeralString.charAt(characterIndex) + "' as subtractive character. Only I, X and C can be used as subtractive numerals.");
                 }
@@ -69,19 +69,19 @@ public final class RomanNumeral {
                 if (UNREPEATABLES.contains(numeralString.substring(characterIndex, characterIndex + 1))) {
                     throw new InvalidNumeralException("Repeated instance of '" + numeralString.charAt(characterIndex) + "'. V, L or D cannot be repeated.");
                 }
-                if (++repetitionCount > 3) {
+                if (++characterRepetitionCount > 3) {
                     throw new InvalidNumeralException("Roman characters (in this case '" + numeralString.charAt(characterIndex) + "') cannot repeat more than 3 times");
                 }
-                reducedValues.set(reducedValueBuildIndex, reducedValues.get(reducedValueBuildIndex) + subject);
+                calculatedValues.set(calculatedValueIndex, calculatedValues.get(calculatedValueIndex) + subject);
             } else {
-                repetitionCount = 1;
-                reducedValues.add(subject);
-                reducedValueBuildIndex++;
+                characterRepetitionCount = 1;
+                calculatedValues.add(subject);
+                calculatedValueIndex++;
             }
             previousValue = subject;
         }
 
-        value = reducedValues.stream().mapToInt(i -> i).sum();
+        value = calculatedValues.stream().mapToInt(i -> i).sum();
 
     }
 
