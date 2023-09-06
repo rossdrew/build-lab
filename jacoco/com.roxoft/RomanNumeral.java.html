@@ -49,19 +49,19 @@ public final class RomanNumeral {
 <span class="nc" id="L49">        final List&lt;Integer&gt; asIntegers = Arrays.stream(numeralString.split(&quot;&quot;))</span>
 <span class="nc" id="L50">                .map(this::characterValue)</span>
 <span class="nc" id="L51">                .toList();</span>
-<span class="nc" id="L52">        final List&lt;Integer&gt; reducedValues = new ArrayList&lt;&gt;(List.of(asIntegers.get(0)));</span>
+<span class="nc" id="L52">        final List&lt;Integer&gt; calculatedValues = new ArrayList&lt;&gt;(List.of(asIntegers.get(0)));</span>
 
 <span class="nc" id="L54">        for (int characterIndex = 1,</span>
-<span class="nc" id="L55">             previousValue = reducedValues.get(0),</span>
-<span class="nc" id="L56">             reducedValueBuildIndex = 0,</span>
-<span class="nc" id="L57">             repetitionCount = 1;</span>
+<span class="nc" id="L55">             previousValue = calculatedValues.get(0),</span>
+<span class="nc" id="L56">             calculatedValueIndex = 0,</span>
+<span class="nc" id="L57">             characterRepetitionCount = 1;</span>
 <span class="nc bnc" id="L58" title="All 2 branches missed.">             characterIndex &lt; asIntegers.size(); characterIndex++) {</span>
 <span class="nc" id="L59">            int subject = asIntegers.get(characterIndex);</span>
 
 <span class="nc bnc" id="L61" title="All 2 branches missed.">            if (subject &gt; previousValue) {</span>
-<span class="nc" id="L62">                repetitionCount = 1;</span>
+<span class="nc" id="L62">                characterRepetitionCount = 1;</span>
 <span class="nc bnc" id="L63" title="All 2 branches missed.">                if (SUBTRACTIVE.contains(numeralString.substring(characterIndex - 1, characterIndex))) {</span>
-<span class="nc" id="L64">                    reducedValues.set(reducedValueBuildIndex, subject - reducedValues.get(reducedValueBuildIndex));</span>
+<span class="nc" id="L64">                    calculatedValues.set(calculatedValueIndex, subject - calculatedValues.get(calculatedValueIndex));</span>
                 } else {
 <span class="nc" id="L66">                    throw new InvalidNumeralException(&quot;Use of '&quot; + numeralString.charAt(characterIndex) + &quot;' as subtractive character. Only I, X and C can be used as subtractive numerals.&quot;);</span>
                 }
@@ -69,19 +69,19 @@ public final class RomanNumeral {
 <span class="nc bnc" id="L69" title="All 2 branches missed.">                if (UNREPEATABLES.contains(numeralString.substring(characterIndex, characterIndex + 1))) {</span>
 <span class="nc" id="L70">                    throw new InvalidNumeralException(&quot;Repeated instance of '&quot; + numeralString.charAt(characterIndex) + &quot;'. V, L or D cannot be repeated.&quot;);</span>
                 }
-<span class="nc bnc" id="L72" title="All 2 branches missed.">                if (++repetitionCount &gt; 3) {</span>
+<span class="nc bnc" id="L72" title="All 2 branches missed.">                if (++characterRepetitionCount &gt; 3) {</span>
 <span class="nc" id="L73">                    throw new InvalidNumeralException(&quot;Roman characters (in this case '&quot; + numeralString.charAt(characterIndex) + &quot;') cannot repeat more than 3 times&quot;);</span>
                 }
-<span class="nc" id="L75">                reducedValues.set(reducedValueBuildIndex, reducedValues.get(reducedValueBuildIndex) + subject);</span>
+<span class="nc" id="L75">                calculatedValues.set(calculatedValueIndex, calculatedValues.get(calculatedValueIndex) + subject);</span>
             } else {
-<span class="nc" id="L77">                repetitionCount = 1;</span>
-<span class="nc" id="L78">                reducedValues.add(subject);</span>
-<span class="nc" id="L79">                reducedValueBuildIndex++;</span>
+<span class="nc" id="L77">                characterRepetitionCount = 1;</span>
+<span class="nc" id="L78">                calculatedValues.add(subject);</span>
+<span class="nc" id="L79">                calculatedValueIndex++;</span>
             }
 <span class="nc" id="L81">            previousValue = subject;</span>
         }
 
-<span class="nc" id="L84">        value = reducedValues.stream().mapToInt(i -&gt; i).sum();</span>
+<span class="nc" id="L84">        value = calculatedValues.stream().mapToInt(i -&gt; i).sum();</span>
 
 <span class="nc" id="L86">    }</span>
 

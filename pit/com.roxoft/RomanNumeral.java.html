@@ -794,7 +794,7 @@
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>        final List&#60;Integer&#62; reducedValues = new ArrayList&#60;&#62;(List.of(asIntegers.get(0)));</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>        final List&#60;Integer&#62; calculatedValues = new ArrayList&#60;&#62;(List.of(asIntegers.get(0)));</span></pre></td></tr>
 
 
 <tr>
@@ -839,7 +839,7 @@
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>             previousValue = reducedValues.get(0),</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>             previousValue = calculatedValues.get(0),</span></pre></td></tr>
 
 
 <tr>
@@ -854,7 +854,7 @@
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>             reducedValueBuildIndex = 0,</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>             calculatedValueIndex = 0,</span></pre></td></tr>
 
 
 <tr>
@@ -869,7 +869,7 @@
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>             repetitionCount = 1;</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>             characterRepetitionCount = 1;</span></pre></td></tr>
 
 
 <tr>
@@ -950,7 +950,7 @@
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>                repetitionCount = 1;</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>                characterRepetitionCount = 1;</span></pre></td></tr>
 
 
 <tr>
@@ -985,7 +985,7 @@
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>                    reducedValues.set(reducedValueBuildIndex, subject - reducedValues.get(reducedValueBuildIndex));</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>                    calculatedValues.set(calculatedValueIndex, subject - calculatedValues.get(calculatedValueIndex));</span></pre></td></tr>
 
 
 <tr>
@@ -1114,7 +1114,7 @@
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>                if (++repetitionCount &#62; 3) {</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>                if (++characterRepetitionCount &#62; 3) {</span></pre></td></tr>
 
 
 <tr>
@@ -1161,7 +1161,7 @@
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>                reducedValues.set(reducedValueBuildIndex, reducedValues.get(reducedValueBuildIndex) + subject);</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>                calculatedValues.set(calculatedValueIndex, calculatedValues.get(calculatedValueIndex) + subject);</span></pre></td></tr>
 
 
 <tr>
@@ -1191,7 +1191,7 @@
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>                repetitionCount = 1;</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>                characterRepetitionCount = 1;</span></pre></td></tr>
 
 
 <tr>
@@ -1206,7 +1206,7 @@
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>                reducedValues.add(subject);</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>                calculatedValues.add(subject);</span></pre></td></tr>
 
 
 <tr>
@@ -1223,7 +1223,7 @@
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>                reducedValueBuildIndex++;</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>                calculatedValueIndex++;</span></pre></td></tr>
 
 
 <tr>
@@ -1300,7 +1300,7 @@
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>        value = reducedValues.stream().mapToInt(i -&#62; i).sum();</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>        value = calculatedValues.stream().mapToInt(i -&#62; i).sum();</span></pre></td></tr>
 
 
 <tr>
@@ -1634,7 +1634,7 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@a238a8e_23'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>characterValue<br/><b>Killed by : </b>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleNumbers(java.lang.String, int)]/[test-template-invocation:#4]</span></span> replaced int return with 0 for com/roxoft/RomanNumeral::characterValue &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>characterValue<br/><b>Killed by : </b>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#16]</span></span> replaced int return with 0 for com/roxoft/RomanNumeral::characterValue &rarr; KILLED</p> 
 </td>
 </tr>
 <tr>
@@ -1654,7 +1654,7 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@a238a8e_58'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleNumbers(java.lang.String, int)]/[test-template-invocation:#4]</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#14]</span></span> negated conditional &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleNumbers(java.lang.String, int)]/[test-template-invocation:#4]</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#16]</span></span> negated conditional &rarr; KILLED</p> 
 </td>
 </tr>
 <tr>
@@ -1664,7 +1664,7 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@a238a8e_61'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#14]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRepeatedNumerals(java.lang.String, int)]/[test-template-invocation:#2]</span></span> changed conditional boundary &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#16]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#19]</span></span> changed conditional boundary &rarr; KILLED</p> 
 </td>
 </tr>
 <tr>
@@ -1674,7 +1674,7 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@a238a8e_63'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#14]</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#14]</span></span> negated conditional &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#16]</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#16]</span></span> negated conditional &rarr; KILLED</p> 
 </td>
 </tr>
 <tr>
@@ -1684,7 +1684,7 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@a238a8e_64'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleSubtraction(java.lang.String, int)]/[test-template-invocation:#6]</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#9]</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> 
 </td>
 </tr>
 <tr>
@@ -1714,7 +1714,7 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@a238a8e_72'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRepeatedNumerals(java.lang.String, int)]/[test-template-invocation:#2]</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRepeatedNumerals(java.lang.String, int)]/[test-template-invocation:#2]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#3]</span></span> Changed increment from 1 to -1 &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#3]</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#19]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#3]</span></span> Changed increment from 1 to -1 &rarr; KILLED</p> 
 </td>
 </tr>
 <tr>
@@ -1724,7 +1724,7 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@a238a8e_75'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRepeatedNumerals(java.lang.String, int)]/[test-template-invocation:#2]</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#19]</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> 
 </td>
 </tr>
 <tr>
@@ -1734,7 +1734,7 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@a238a8e_79'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#8]</span></span> Changed increment from 1 to -1 &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleAddition(java.lang.String, int)]/[test-template-invocation:#4]</span></span> Changed increment from 1 to -1 &rarr; KILLED</p> 
 </td>
 </tr>
 <tr>
@@ -1799,7 +1799,7 @@
 
 <h2>Tests examined</h2>
 <ul>
-<li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleAddition(java.lang.String, int)]/[test-template-invocation:#3] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#16] (1 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#14] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleNumbers(java.lang.String, int)]/[test-template-invocation:#4] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#12] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleNumbers(java.lang.String, int)]/[test-template-invocation:#2] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#10] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleNumbers(java.lang.String, int)]/[test-template-invocation:#6] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleAddition(java.lang.String, int)]/[test-template-invocation:#1] (114 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleSubtraction(java.lang.String, int)]/[test-template-invocation:#5] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleSubtraction(java.lang.String, int)]/[test-template-invocation:#3] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleSubtraction(java.lang.String, int)]/[test-template-invocation:#1] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#8] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRepeatedNumerals(java.lang.String, int)]/[test-template-invocation:#2] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#5] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#7] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#2] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRepeatedNumerals(java.lang.String, int)]/[test-template-invocation:#4] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#9] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#4] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#16] (2 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#6] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#18] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleSubtraction(java.lang.String, int)]/[test-template-invocation:#7] (8 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#12] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#14] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#1] (6 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#10] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#3] (1 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleAddition(java.lang.String, int)]/[test-template-invocation:#4] (3 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#15] (1 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#13] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleNumbers(java.lang.String, int)]/[test-template-invocation:#3] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#11] (1 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleNumbers(java.lang.String, int)]/[test-template-invocation:#1] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleNumbers(java.lang.String, int)]/[test-template-invocation:#7] (1 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[method:testEmpty()] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleNumbers(java.lang.String, int)]/[test-template-invocation:#5] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleAddition(java.lang.String, int)]/[test-template-invocation:#2] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleSubtraction(java.lang.String, int)]/[test-template-invocation:#6] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleSubtraction(java.lang.String, int)]/[test-template-invocation:#4] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleSubtraction(java.lang.String, int)]/[test-template-invocation:#2] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#20] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#9] (1 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRepeatedNumerals(java.lang.String, int)]/[test-template-invocation:#3] (1 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRepeatedNumerals(java.lang.String, int)]/[test-template-invocation:#1] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#6] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#19] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#1] (5 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#8] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#3] (1 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#5] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#15] (1 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleSubtraction(java.lang.String, int)]/[test-template-invocation:#8] (3 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#17] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#7] (2 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#11] (2 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#13] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#2] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#4] (0 ms)</li>
+<li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleAddition(java.lang.String, int)]/[test-template-invocation:#3] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#16] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#14] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleNumbers(java.lang.String, int)]/[test-template-invocation:#4] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#12] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleNumbers(java.lang.String, int)]/[test-template-invocation:#2] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#10] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleNumbers(java.lang.String, int)]/[test-template-invocation:#6] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleAddition(java.lang.String, int)]/[test-template-invocation:#1] (80 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleSubtraction(java.lang.String, int)]/[test-template-invocation:#5] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleSubtraction(java.lang.String, int)]/[test-template-invocation:#3] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleSubtraction(java.lang.String, int)]/[test-template-invocation:#1] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#8] (2 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRepeatedNumerals(java.lang.String, int)]/[test-template-invocation:#2] (3 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#5] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#7] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#2] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRepeatedNumerals(java.lang.String, int)]/[test-template-invocation:#4] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#9] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#4] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#16] (1 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#6] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#18] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleSubtraction(java.lang.String, int)]/[test-template-invocation:#7] (2 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#12] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#14] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#1] (2 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#10] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#3] (1 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleAddition(java.lang.String, int)]/[test-template-invocation:#4] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#15] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#13] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleNumbers(java.lang.String, int)]/[test-template-invocation:#3] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#11] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleNumbers(java.lang.String, int)]/[test-template-invocation:#1] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleNumbers(java.lang.String, int)]/[test-template-invocation:#7] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[method:testEmpty()] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleNumbers(java.lang.String, int)]/[test-template-invocation:#5] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleAddition(java.lang.String, int)]/[test-template-invocation:#2] (2 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleSubtraction(java.lang.String, int)]/[test-template-invocation:#6] (2 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleSubtraction(java.lang.String, int)]/[test-template-invocation:#4] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleSubtraction(java.lang.String, int)]/[test-template-invocation:#2] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#20] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#9] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRepeatedNumerals(java.lang.String, int)]/[test-template-invocation:#3] (1 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRepeatedNumerals(java.lang.String, int)]/[test-template-invocation:#1] (3 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#6] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#1] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#19] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#8] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#3] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#5] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#15] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testSimpleSubtraction(java.lang.String, int)]/[test-template-invocation:#8] (1 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#7] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#17] (3 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#11] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testRandomNumers(java.lang.String, int)]/[test-template-invocation:#13] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#2] (0 ms)</li><li>com.roxoft.RomanNumeralTest.[engine:junit-jupiter]/[class:com.roxoft.RomanNumeralTest]/[test-template:testInvalid(java.lang.String)]/[test-template-invocation:#4] (0 ms)</li>
 </ul>
 
 <br/>
