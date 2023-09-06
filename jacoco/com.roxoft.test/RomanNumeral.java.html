@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RomanNumeral.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">build-lab</a> &gt; <a href="index.source.html" class="el_package">com.roxoft</a> &gt; <span class="el_source">RomanNumeral.java</span></div><h1>RomanNumeral.java</h1><pre class="source lang-java linenums">package com.roxoft;
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RomanNumeral.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">build-lab</a> &gt; <a href="index.source.html" class="el_package">com.roxoft.test</a> &gt; <span class="el_source">RomanNumeral.java</span></div><h1>RomanNumeral.java</h1><pre class="source lang-java linenums">package com.roxoft.test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -29,7 +29,7 @@ public final class RomanNumeral {
 <span class="nc" id="L29">            case &quot;D&quot; -&gt; 500;</span>
 <span class="nc" id="L30">            case &quot;M&quot; -&gt; 1000;</span>
             default -&gt;
-<span class="nc" id="L32">                    throw new InvalidNumeralException(&quot;'&quot;</span>
+<span class="nc" id="L32">                    throw new InvalidRomanNumeralException(&quot;'&quot;</span>
                             + romanCharacter
                             + &quot;' is an unknown Roman numeral character&quot;
                     );
@@ -63,14 +63,14 @@ public final class RomanNumeral {
 <span class="nc bnc" id="L63" title="All 2 branches missed.">                if (SUBTRACTIVE.contains(numeralString.substring(characterIndex - 1, characterIndex))) {</span>
 <span class="nc" id="L64">                    calculatedValues.set(calculatedValueIndex, subject - calculatedValues.get(calculatedValueIndex));</span>
                 } else {
-<span class="nc" id="L66">                    throw new InvalidNumeralException(&quot;Use of '&quot; + numeralString.charAt(characterIndex) + &quot;' as subtractive character. Only I, X and C can be used as subtractive numerals.&quot;);</span>
+<span class="nc" id="L66">                    throw new InvalidRomanNumeralException(&quot;Use of '&quot; + numeralString.charAt(characterIndex) + &quot;' as subtractive character. Only I, X and C can be used as subtractive numerals.&quot;);</span>
                 }
 <span class="nc bnc" id="L68" title="All 2 branches missed.">            } else if (subject == previousValue) {</span>
 <span class="nc bnc" id="L69" title="All 2 branches missed.">                if (UNREPEATABLES.contains(numeralString.substring(characterIndex, characterIndex + 1))) {</span>
-<span class="nc" id="L70">                    throw new InvalidNumeralException(&quot;Repeated instance of '&quot; + numeralString.charAt(characterIndex) + &quot;'. V, L or D cannot be repeated.&quot;);</span>
+<span class="nc" id="L70">                    throw new InvalidRomanNumeralException(&quot;Repeated instance of '&quot; + numeralString.charAt(characterIndex) + &quot;'. V, L or D cannot be repeated.&quot;);</span>
                 }
 <span class="nc bnc" id="L72" title="All 2 branches missed.">                if (++characterRepetitionCount &gt; 3) {</span>
-<span class="nc" id="L73">                    throw new InvalidNumeralException(&quot;Roman characters (in this case '&quot; + numeralString.charAt(characterIndex) + &quot;') cannot repeat more than 3 times&quot;);</span>
+<span class="nc" id="L73">                    throw new InvalidRomanNumeralException(&quot;Roman characters (in this case '&quot; + numeralString.charAt(characterIndex) + &quot;') cannot repeat more than 3 times&quot;);</span>
                 }
 <span class="nc" id="L75">                calculatedValues.set(calculatedValueIndex, calculatedValues.get(calculatedValueIndex) + subject);</span>
             } else {
