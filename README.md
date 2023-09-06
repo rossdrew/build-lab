@@ -1,6 +1,6 @@
 # Build Labratory
 
-A small codebase to experiment with build tools.
+Started with a Roman Numeral converter codebase to test build tools and I've expanded it to include Advent of Code solutions, where I take my time as write them as best I can.
 
 ## Contains
 
