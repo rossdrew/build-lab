@@ -1,10 +1,12 @@
-package com.roxoft;
+package com.roxoft.test;
 
+import com.roxoft.test.InvalidRomanNumeralException;
+import com.roxoft.test.RomanNumeral;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import static com.roxoft.RomanNumeral.ZERO;
+import static com.roxoft.test.RomanNumeral.ZERO;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -125,7 +127,7 @@ public class RomanNumeralTest {
         try {
             numeral = RomanNumeral.of(testValue);
             fail("Error expected!");
-        }catch (InvalidNumeralException e){
+        }catch (InvalidRomanNumeralException e){
             assertNull(numeral);
         }
     }

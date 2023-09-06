@@ -5,4 +5,4 @@
  * @author rossdrew
  * @version 0.1
  */
-package com.roxoft;
+package com.roxoft.test;

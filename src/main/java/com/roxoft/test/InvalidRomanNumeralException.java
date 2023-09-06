@@ -1,4 +1,4 @@
-package com.roxoft;
+package com.roxoft.test;
 
 public class InvalidRomanNumeralException extends RuntimeException {
     /**

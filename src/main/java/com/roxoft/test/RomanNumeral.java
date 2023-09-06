@@ -1,4 +1,4 @@
-package com.roxoft;
+package com.roxoft.test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
