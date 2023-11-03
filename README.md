@@ -19,7 +19,8 @@ Started with a Roman Numeral converter codebase to test build tools and I've exp
 2. Write the code to pass the test
 3. Run Checkstyle (checkstyle:check)
 4. Fix style issues
-...
+5. Run Mutation Testing (pitest:mutationCoverage)
+6. Fix mutation issues
 
 ## Next Up
 - Pitest attached to commits, evaluating [Bonajo/pitest-report-action](https://github.com/Bonajo/pitest-report-action)
