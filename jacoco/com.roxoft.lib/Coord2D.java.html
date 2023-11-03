@@ -2,46 +2,65 @@
 
 import java.util.Objects;
 
-public class Coord2D {
+public final class Coord2D {
+    /** Cartesian x co-ordinate of location. */
     private final int xCoordinate;
+    /** Cartesian y co-ordinate of location. */
     private final int yCoordinate;
 
     private Coord2D(final int x,
-<span class="nc" id="L10">                    final int y){</span>
-<span class="nc" id="L11">        xCoordinate = x;</span>
-<span class="nc" id="L12">        yCoordinate = y;</span>
-<span class="nc" id="L13">    }</span>
+<span class="nc" id="L12">                    final int y) {</span>
+<span class="nc" id="L13">        xCoordinate = x;</span>
+<span class="nc" id="L14">        yCoordinate = y;</span>
+<span class="nc" id="L15">    }</span>
 
-    public static Coord2D of(final int x, final int y){
-<span class="nc" id="L16">        return new Coord2D(x, y);</span>
+    /**
+     * @param x Cartesian x co-ordinate of a 2D location.
+     * @param y Cartesian y co-ordinate of a 2D location.
+     * @return a {@link Coord2D} representation of x and y
+     */
+    public static Coord2D of(final int x, final int y) {
+<span class="nc" id="L23">        return new Coord2D(x, y);</span>
     }
 
-    public int getX(){
-<span class="nc" id="L20">        return xCoordinate;</span>
+    /**
+     * @return Cartesian x co-ordinate of location.
+     */
+    public int getX() {
+<span class="nc" id="L30">        return xCoordinate;</span>
     }
 
-    public int getY(){
-<span class="nc" id="L24">        return yCoordinate;</span>
+    /**
+     * @return Cartesian x co-ordinate of location.
+     */
+    public int getY() {
+<span class="nc" id="L37">        return yCoordinate;</span>
     }
 
     @Override
     public String toString() {
-<span class="nc" id="L29">        return &quot;Loc (&quot; + xCoordinate +</span>
-                &quot;, &quot; + yCoordinate +
-                &quot;)&quot;;
+<span class="nc" id="L42">        return &quot;Loc (&quot;</span>
+                + xCoordinate
+                + &quot;, &quot;
+                + yCoordinate
+                + &quot;)&quot;;
     }
 
     @Override
-    public boolean equals(Object o) {
-<span class="nc bnc" id="L36" title="All 2 branches missed.">        if (this == o) return true;</span>
-<span class="nc bnc" id="L37" title="All 4 branches missed.">        if (o == null || getClass() != o.getClass()) return false;</span>
-<span class="nc" id="L38">        Coord2D coord2D = (Coord2D) o;</span>
-<span class="nc bnc" id="L39" title="All 4 branches missed.">        return xCoordinate == coord2D.xCoordinate &amp;&amp; yCoordinate == coord2D.yCoordinate;</span>
+    public boolean equals(final Object o) {
+<span class="nc bnc" id="L51" title="All 2 branches missed.">        if (this == o) {</span>
+<span class="nc" id="L52">            return true;</span>
+        }
+<span class="nc bnc" id="L54" title="All 4 branches missed.">        if (o == null || getClass() != o.getClass()) {</span>
+<span class="nc" id="L55">            return false;</span>
+        }
+<span class="nc" id="L57">        Coord2D coord2D = (Coord2D) o;</span>
+<span class="nc bnc" id="L58" title="All 4 branches missed.">        return xCoordinate == coord2D.xCoordinate &amp;&amp; yCoordinate == coord2D.yCoordinate;</span>
     }
 
     @Override
     public int hashCode() {
-<span class="nc" id="L44">        return Objects.hash(xCoordinate, yCoordinate);</span>
+<span class="nc" id="L63">        return Objects.hash(xCoordinate, yCoordinate);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

@@ -3,8 +3,9 @@ build-lab,com.roxoft.aoc.y2015,Day1,76,0,7,0,14,0,10,0,6,0
 build-lab,com.roxoft,InvalidNumeralException,4,0,0,0,2,0,1,0,1,0
 build-lab,com.roxoft,RomanNumeral,175,23,21,1,37,8,16,4,2,4
 build-lab,com.roxoft.aoc,UnexpectedSolutionException,4,0,0,0,2,0,1,0,1,0
-build-lab,com.roxoft.aoc.y2015.Day3,Day3,170,0,7,0,28,0,11,0,6,0
-build-lab,com.roxoft.lib,Coord2D,74,0,10,0,13,0,12,0,7,0
+build-lab,com.roxoft.aoc.y2015.Day3,Day3,147,0,9,0,35,0,17,0,11,0
+build-lab,com.roxoft.aoc.y2015.Day3,Day3.Santa,92,0,0,0,17,0,8,0,8,0
+build-lab,com.roxoft.lib,Coord2D,74,0,10,0,15,0,12,0,7,0
 build-lab,com.roxoft.test,InvalidRomanNumeralException,4,0,0,0,2,0,1,0,1,0
 build-lab,com.roxoft.test,RomanNumeral,175,23,21,1,37,8,16,4,2,4
 build-lab,com.roxoft.aoc.y2015.Day2,Parser,37,0,0,0,9,0,3,0,3,0
