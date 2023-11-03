@@ -13,6 +13,13 @@ Started with a Roman Numeral converter codebase to test build tools and I've exp
   - Checkstyle reports
 - Checkstyle reports attached to commits via [jwgmeligmeyling/checkstyle-github-action](https://github.com/jwgmeligmeyling/checkstyle-github-action).  Using a branch of this ([cmelchior/checkstyle-github-action](https://github.com/cmelchior/checkstyle-github-action)) to use a newer version (16) of node
 
+## Workflow
+
+1. Write the failing test
+2. Write the code to pass the test
+3. Run Checkstyle (checkstyle:check)
+4. Fix style issues
+...
 
 ## Next Up
 - Pitest attached to commits, evaluating [Bonajo/pitest-report-action](https://github.com/Bonajo/pitest-report-action)
