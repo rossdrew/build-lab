@@ -95,6 +95,11 @@ jobs:
 
       - name: Run Mutation Testing
         run: mvn package org.pitest:pitest-maven:mutationCoverage jacoco:report
+        with:
+          generate-branches-badge: true
+
+      - name: Generate JaCoCo Badge
+        uses: cicirello/jacoco-badge-generator@v2
 
       # Still evaluating this!!
       - name: Publish Pitest Report
