@@ -21,12 +21,6 @@ public final class Day3 {
         /** This {@link Santa}s current {@link com.roxoft.lib.Coord2D} location. */
         private Coord2D location;
 
-        private Santa(final List<Coord2D> declaredLocationHistory,
-                      final Coord2D currentLocation) {
-            location = currentLocation;
-            locationHistory = declaredLocationHistory;
-        }
-
         private Santa(final Coord2D currentLocation) {
             location = currentLocation;
             locationHistory = new ArrayList<>();
@@ -89,10 +83,11 @@ public final class Day3 {
     }
 
     /**
-     * @return the {@link List} of all {@link Santa}s
+     * @param santaNumber the number of the desired {@link Santa}.
+     * @return The {@link Santa} identified by the provided santaNumber
      */
-    public List<Santa> getSantas() {
-        return santas;
+    public Santa getSanta(final int santaNumber) {
+        return santas.get(santaNumber);
     }
 
     private Day3(final String instructionSequence) {
