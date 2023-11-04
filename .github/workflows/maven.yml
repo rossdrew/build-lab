@@ -100,6 +100,7 @@ jobs:
         uses: cicirello/jacoco-badge-generator@v2
         with:
           generate-branches-badge: true
+          jacoco-csv-file: ./target/site/jacoco/jacoco.csv
 
       # Still evaluating this!!
       - name: Publish Pitest Report
