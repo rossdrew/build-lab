@@ -21,17 +21,11 @@ public final class Day3 {
         /** This {@link Santa}s current {@link com.roxoft.lib.Coord2D} location. */
         private Coord2D location;
 
-        private Santa(final List&lt;Coord2D&gt; declaredLocationHistory,
-<span class="nc" id="L25">                      final Coord2D currentLocation) {</span>
-<span class="nc" id="L26">            location = currentLocation;</span>
-<span class="nc" id="L27">            locationHistory = declaredLocationHistory;</span>
+<span class="nc" id="L24">        private Santa(final Coord2D currentLocation) {</span>
+<span class="nc" id="L25">            location = currentLocation;</span>
+<span class="nc" id="L26">            locationHistory = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L27">            locationHistory.add(currentLocation);</span>
 <span class="nc" id="L28">        }</span>
-
-<span class="nc" id="L30">        private Santa(final Coord2D currentLocation) {</span>
-<span class="nc" id="L31">            location = currentLocation;</span>
-<span class="nc" id="L32">            locationHistory = new ArrayList&lt;&gt;();</span>
-<span class="nc" id="L33">            locationHistory.add(currentLocation);</span>
-<span class="nc" id="L34">        }</span>
 
         /**
          * Move this {@link Santa}s {@link com.roxoft.lib.Coord2D} location Up/North one space.
@@ -39,7 +33,7 @@ public final class Day3 {
          * @return the new {@link com.roxoft.lib.Coord2D} location.
          */
         public Coord2D moveUp() {
-<span class="nc" id="L42">            return move(Coord2D.of(location.getX(), location.getY() - 1));</span>
+<span class="nc" id="L36">            return move(Coord2D.of(location.getX(), location.getY() - 1));</span>
         }
 
         /**
@@ -48,7 +42,7 @@ public final class Day3 {
          * @return the new {@link com.roxoft.lib.Coord2D} location.
          */
         public Coord2D moveDown() {
-<span class="nc" id="L51">            return move(Coord2D.of(location.getX(), location.getY() + 1));</span>
+<span class="nc" id="L45">            return move(Coord2D.of(location.getX(), location.getY() + 1));</span>
         }
 
         /**
@@ -57,7 +51,7 @@ public final class Day3 {
          * @return the new {@link com.roxoft.lib.Coord2D} location.
          */
         public Coord2D moveLeft() {
-<span class="nc" id="L60">            return move(Coord2D.of(location.getX() - 1, location.getY()));</span>
+<span class="nc" id="L54">            return move(Coord2D.of(location.getX() - 1, location.getY()));</span>
         }
 
         /**
@@ -66,7 +60,7 @@ public final class Day3 {
          * @return the new {@link com.roxoft.lib.Coord2D} location.
          */
         public Coord2D moveRight() {
-<span class="nc" id="L69">            return move(Coord2D.of(location.getX() + 1, location.getY()));</span>
+<span class="nc" id="L63">            return move(Coord2D.of(location.getX() + 1, location.getY()));</span>
         }
 
         /**
@@ -75,35 +69,36 @@ public final class Day3 {
          * @return the new {@link com.roxoft.lib.Coord2D} location.
          */
         private Coord2D move(final Coord2D newLocation) {
-<span class="nc" id="L78">            locationHistory.add(newLocation);</span>
-<span class="nc" id="L79">            location = newLocation;</span>
-<span class="nc" id="L80">            return newLocation;</span>
+<span class="nc" id="L72">            locationHistory.add(newLocation);</span>
+<span class="nc" id="L73">            location = newLocation;</span>
+<span class="nc" id="L74">            return newLocation;</span>
         }
 
         /**
          * @return this {@link Santa}s {@link com.roxoft.lib.Coord2D} location.
          */
         public Coord2D location() {
-<span class="nc" id="L87">            return location;</span>
+<span class="nc" id="L81">            return location;</span>
         }
     }
 
     /**
-     * @return the {@link List} of all {@link Santa}s
+     * @param santaNumber the number of the desired {@link Santa}.
+     * @return The {@link Santa} identified by the provided santaNumber
      */
-    public List&lt;Santa&gt; getSantas() {
-<span class="nc" id="L95">        return santas;</span>
+    public Santa getSanta(final int santaNumber) {
+<span class="nc" id="L90">        return santas.get(santaNumber);</span>
     }
 
-<span class="nc" id="L98">    private Day3(final String instructionSequence) {</span>
-<span class="nc" id="L99">        instructions = instructionSequence;</span>
-<span class="nc" id="L100">        santas = new ArrayList&lt;&gt;();</span>
-<span class="nc" id="L101">    }</span>
+<span class="nc" id="L93">    private Day3(final String instructionSequence) {</span>
+<span class="nc" id="L94">        instructions = instructionSequence;</span>
+<span class="nc" id="L95">        santas = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L96">    }</span>
 
-<span class="nc" id="L103">    private Day3(final String instructionSequence, final List&lt;Santa&gt; predefinedSantas) {</span>
-<span class="nc" id="L104">        instructions = instructionSequence;</span>
-<span class="nc" id="L105">        santas = predefinedSantas;</span>
-<span class="nc" id="L106">    }</span>
+<span class="nc" id="L98">    private Day3(final String instructionSequence, final List&lt;Santa&gt; predefinedSantas) {</span>
+<span class="nc" id="L99">        instructions = instructionSequence;</span>
+<span class="nc" id="L100">        santas = predefinedSantas;</span>
+<span class="nc" id="L101">    }</span>
 
     /**
      * @param instructionSequence A {@link String} representing a series of instructions
@@ -111,14 +106,14 @@ public final class Day3 {
      * @return A {@link Day3} object ready for solving the problem.
      */
     public static Day3 of(final String instructionSequence) {
-<span class="nc" id="L114">        return new Day3(instructionSequence);</span>
+<span class="nc" id="L109">        return new Day3(instructionSequence);</span>
     }
 
     /**
      * @return A new {@link Day3} object that is a clone of this one with an additional {@link Santa} at {@link Coord2D} (0,0)
      */
     public Day3 withNewSanta() {
-<span class="nc" id="L121">        return withASantaAt(Coord2D.of(0, 0));</span>
+<span class="nc" id="L116">        return withASantaAt(Coord2D.of(0, 0));</span>
     }
 
     /**
@@ -127,9 +122,9 @@ public final class Day3 {
      * @return A new {@link Day3} object that is a clone of this one with an additional {@link Santa} at the provided {@link Coord2D} location
      */
     public Day3 withASantaAt(final Coord2D location) {
-<span class="nc" id="L130">        final List&lt;Santa&gt; newSantaList = santas;</span>
-<span class="nc" id="L131">        newSantaList.add(new Santa(location));</span>
-<span class="nc" id="L132">        return new Day3(</span>
+<span class="nc" id="L125">        final List&lt;Santa&gt; newSantaList = santas;</span>
+<span class="nc" id="L126">        newSantaList.add(new Santa(location));</span>
+<span class="nc" id="L127">        return new Day3(</span>
                 instructions,
                 newSantaList
         );
@@ -139,23 +134,23 @@ public final class Day3 {
      * @return The number of unique houses visited by all {@link Santa}s currently
      */
     public long getNumberOfVisitedHouses() {
-<span class="nc" id="L142">        return santas</span>
-<span class="nc" id="L143">                .stream()</span>
-<span class="nc" id="L144">                .map(santa -&gt; santa.locationHistory)</span>
-<span class="nc" id="L145">                .flatMap(List::stream)</span>
-<span class="nc" id="L146">                .distinct()</span>
-<span class="nc" id="L147">                .count();</span>
+<span class="nc" id="L137">        return santas</span>
+<span class="nc" id="L138">                .stream()</span>
+<span class="nc" id="L139">                .map(santa -&gt; santa.locationHistory)</span>
+<span class="nc" id="L140">                .flatMap(List::stream)</span>
+<span class="nc" id="L141">                .distinct()</span>
+<span class="nc" id="L142">                .count();</span>
     }
 
     /**
      * @return An updated {@link Day3} object where all instructions have been followed
      */
     public Day3 followInstructions() {
-<span class="nc" id="L154">        Day3 intermediateStep = this;</span>
-<span class="nc bnc" id="L155" title="All 2 branches missed.">        for (int i = 0; i &lt; instructions.length(); i++) {</span>
-<span class="nc" id="L156">            intermediateStep = intermediateStep.followInstruction(i);</span>
+<span class="nc" id="L149">        Day3 intermediateStep = this;</span>
+<span class="nc bnc" id="L150" title="All 2 branches missed.">        for (int i = 0; i &lt; instructions.length(); i++) {</span>
+<span class="nc" id="L151">            intermediateStep = intermediateStep.followInstruction(i);</span>
         }
-<span class="nc" id="L158">        return intermediateStep;</span>
+<span class="nc" id="L153">        return intermediateStep;</span>
     }
 
     /**
@@ -163,25 +158,25 @@ public final class Day3 {
      * @return An updated {@link Day3} object where the indicated instruction has been followed
      */
     public Day3 followInstruction(final int i) {
-<span class="nc" id="L166">        final Santa nextSanta = santas.get(santaFocus);</span>
+<span class="nc" id="L161">        final Santa nextSanta = santas.get(santaFocus);</span>
 
-<span class="nc bnc" id="L168" title="All 5 branches missed.">        switch (instructions.charAt(i)) {</span>
-<span class="nc" id="L169">            case '^': nextSanta.moveUp(); break;</span>
-<span class="nc" id="L170">            case 'v': nextSanta.moveDown(); break;</span>
-<span class="nc" id="L171">            case '&gt;': nextSanta.moveRight(); break;</span>
-<span class="nc" id="L172">            case '&lt;': nextSanta.moveLeft(); break;</span>
-<span class="nc" id="L173">            default: throw new UnexpectedSolutionException(&quot;Unexpected instruction '&quot; + instructions.charAt(0) + &quot;'&quot;);</span>
+<span class="nc bnc" id="L163" title="All 5 branches missed.">        switch (instructions.charAt(i)) {</span>
+<span class="nc" id="L164">            case '^': nextSanta.moveUp(); break;</span>
+<span class="nc" id="L165">            case 'v': nextSanta.moveDown(); break;</span>
+<span class="nc" id="L166">            case '&gt;': nextSanta.moveRight(); break;</span>
+<span class="nc" id="L167">            case '&lt;': nextSanta.moveLeft(); break;</span>
+<span class="nc" id="L168">            default: throw new UnexpectedSolutionException(&quot;Unexpected instruction '&quot; + instructions.charAt(0) + &quot;'&quot;);</span>
         }
 
-<span class="nc bnc" id="L176" title="All 2 branches missed.">        santaFocus = (santaFocus + 1) &lt; santas.size() ? (santaFocus + 1) : 0;</span>
-<span class="nc" id="L177">        return this;</span>
+<span class="nc bnc" id="L171" title="All 2 branches missed.">        santaFocus = (santaFocus + 1) &lt; santas.size() ? (santaFocus + 1) : 0;</span>
+<span class="nc" id="L172">        return this;</span>
     }
 
     /**
      * @return An updated {@link Day3} object where the next instruction has been followed
      */
     public Day3 followNextInstruction() {
-<span class="nc" id="L184">        return followInstruction(0);</span>
+<span class="nc" id="L179">        return followInstruction(0);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>
