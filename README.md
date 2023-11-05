@@ -25,3 +25,4 @@ Started with a Roman Numeral converter codebase to test build tools and I've exp
 ## Next Up
 - Pitest attached to commits, evaluating [Bonajo/pitest-report-action](https://github.com/Bonajo/pitest-report-action)
 - Figure out why Pitest sees 100% coverage but Jacoco is much lower (6% at the time of writing)
+- GitHub Actions generated badges
