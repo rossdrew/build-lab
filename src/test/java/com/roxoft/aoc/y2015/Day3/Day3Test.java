@@ -1,9 +1,10 @@
 package com.roxoft.aoc.y2015.Day3;
 
+import com.roxoft.aoc.UnexpectedSolutionException;
 import com.roxoft.lib.Coord2D;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * --- Day 3: Perfectly Spherical Houses in a Vacuum ---
@@ -56,6 +57,18 @@ public class Day3Test {
     @Test
     public void requirement_west(){
         assertEquals(Coord2D.of(-1, 0), Day3.of("<").withNewSanta().followNextInstruction().getSanta(0).location());
+    }
+
+    @Test
+    public void assumption_invalidDirection(){
+        Day3 testObject = null;
+        try {
+            testObject = Day3.of("x").withNewSanta().followNextInstruction();
+            fail("'x' is not a valid direction, expected to fail");
+        } catch (UnexpectedSolutionException e){
+        }
+
+        assertNull(testObject);
     }
 
     @Test
