@@ -1,7 +1,8 @@
 package com.roxoft.aoc.y2015.Day3;
 
 import com.roxoft.aoc.UnexpectedSolutionException;
-import com.roxoft.lib.*;
+import com.roxoft.lib.Coord2D;
+import com.roxoft.lib.Movable2DEntity;
 
 import java.util.ArrayList;
 import java.util.List;
