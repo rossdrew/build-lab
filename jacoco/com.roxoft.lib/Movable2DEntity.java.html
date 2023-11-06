@@ -31,60 +31,59 @@ public final class Movable2DEntity {
      *
      * @return the new {@linkCoord2D} location.
      */
-    public Coord2D moveUp() {
-<span class="nc" id="L35">        return move(Coord2D.of(location.getX(), location.getY() - 1));</span>
-    }
+    public void moveUp() {
+<span class="nc" id="L35">        move(Coord2D.of(location.getX(), location.getY() - 1));</span>
+<span class="nc" id="L36">    }</span>
 
     /**
      * Move this {@link Movable2DEntity}s {@link Coord2D} location Down/South one space.
      *
      * @return the new {@link Coord2D} location.
      */
-    public Coord2D moveDown() {
-<span class="nc" id="L44">        return move(Coord2D.of(location.getX(), location.getY() + 1));</span>
-    }
+    public void moveDown() {
+<span class="nc" id="L44">        move(Coord2D.of(location.getX(), location.getY() + 1));</span>
+<span class="nc" id="L45">    }</span>
 
     /**
      * Move this {@link Movable2DEntity}s {@link Coord2D} location Left/West one space.
      *
      * @return the new {@link Coord2D} location.
      */
-    public Coord2D moveLeft() {
-<span class="nc" id="L53">        return move(Coord2D.of(location.getX() - 1, location.getY()));</span>
-    }
+    public void moveLeft() {
+<span class="nc" id="L53">        move(Coord2D.of(location.getX() - 1, location.getY()));</span>
+<span class="nc" id="L54">    }</span>
 
     /**
      * Move this {@link Movable2DEntity}s {@link Coord2D} location Right/East one space.
      *
      * @return the new {@link Coord2D} location.
      */
-    public Coord2D moveRight() {
-<span class="nc" id="L62">        return move(Coord2D.of(location.getX() + 1, location.getY()));</span>
-    }
+    public void moveRight() {
+<span class="nc" id="L62">        move(Coord2D.of(location.getX() + 1, location.getY()));</span>
+<span class="nc" id="L63">    }</span>
 
     /**
      * @param newLocation a {@link Coord2D} to move this {@link Movable2DEntity} to.
      *
      * @return the new {@link Coord2D} location.
      */
-    private Coord2D move(final Coord2D newLocation) {
+    private void move(final Coord2D newLocation) {
 <span class="nc" id="L71">        locationHistory.add(newLocation);</span>
 <span class="nc" id="L72">        location = newLocation;</span>
-<span class="nc" id="L73">        return newLocation;</span>
-    }
+<span class="nc" id="L73">    }</span>
 
     /**
      * @return this {@link Movable2DEntity}s {@link Coord2D} location.
      */
     public Coord2D location() {
-<span class="nc" id="L80">        return location;</span>
+<span class="nc" id="L79">        return location;</span>
     }
 
     /**
      * @return this {@link Movable2DEntity}s history of {@link Coord2D} location.
      */
     public List&lt;Coord2D&gt; locationHistory() {
-<span class="nc" id="L87">        return locationHistory;</span>
+<span class="nc" id="L86">        return locationHistory;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>
