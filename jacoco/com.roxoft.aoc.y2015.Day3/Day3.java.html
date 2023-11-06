@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Day3.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">build-lab</a> &gt; <a href="index.source.html" class="el_package">com.roxoft.aoc.y2015.Day3</a> &gt; <span class="el_source">Day3.java</span></div><h1>Day3.java</h1><pre class="source lang-java linenums">package com.roxoft.aoc.y2015.Day3;
 
 import com.roxoft.aoc.UnexpectedSolutionException;
-import com.roxoft.lib.Coord2D;
+import com.roxoft.lib.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,96 +9,28 @@ import java.util.List;
 public final class Day3 {
     /** List of instructions to follow. */
     private final String instructions;
-    /** The {@link List} of {@link Santa}s that will be visiting houses. */
-    private final List&lt;Santa&gt; santas;
-    /** Which {@link Santa} is receiving the next instruction. **/
+    /** The {@link List} of {@link Movable2DEntity}s that will be visiting houses. */
+    private final List&lt;Movable2DEntity&gt; santas;
+    /** Which {@link Movable2DEntity} is receiving the next instruction. **/
 <span class="nc" id="L15">    private int santaFocus = 0;</span>
 
-    //This should possibly be a class with a private constructor
-    public final class Santa {
-        /** The history of {@link com.roxoft.lib.Coord2D} visited by this {@link Santa}. */
-        private List&lt;Coord2D&gt; locationHistory;
-        /** This {@link Santa}s current {@link com.roxoft.lib.Coord2D} location. */
-        private Coord2D location;
-
-<span class="nc" id="L24">        private Santa(final Coord2D currentLocation) {</span>
-<span class="nc" id="L25">            location = currentLocation;</span>
-<span class="nc" id="L26">            locationHistory = new ArrayList&lt;&gt;();</span>
-<span class="nc" id="L27">            locationHistory.add(currentLocation);</span>
-<span class="nc" id="L28">        }</span>
-
-        /**
-         * Move this {@link Santa}s {@link com.roxoft.lib.Coord2D} location Up/North one space.
-         *
-         * @return the new {@link com.roxoft.lib.Coord2D} location.
-         */
-        public Coord2D moveUp() {
-<span class="nc" id="L36">            return move(Coord2D.of(location.getX(), location.getY() - 1));</span>
-        }
-
-        /**
-         * Move this {@link Santa}s {@link com.roxoft.lib.Coord2D} location Down/South one space.
-         *
-         * @return the new {@link com.roxoft.lib.Coord2D} location.
-         */
-        public Coord2D moveDown() {
-<span class="nc" id="L45">            return move(Coord2D.of(location.getX(), location.getY() + 1));</span>
-        }
-
-        /**
-         * Move this {@link Santa}s {@link com.roxoft.lib.Coord2D} location Left/West one space.
-         *
-         * @return the new {@link com.roxoft.lib.Coord2D} location.
-         */
-        public Coord2D moveLeft() {
-<span class="nc" id="L54">            return move(Coord2D.of(location.getX() - 1, location.getY()));</span>
-        }
-
-        /**
-         * Move this {@link Santa}s {@link com.roxoft.lib.Coord2D} location Right/East one space.
-         *
-         * @return the new {@link com.roxoft.lib.Coord2D} location.
-         */
-        public Coord2D moveRight() {
-<span class="nc" id="L63">            return move(Coord2D.of(location.getX() + 1, location.getY()));</span>
-        }
-
-        /**
-         * @param newLocation a {@link com.roxoft.lib.Coord2D} to move this {@link Santa} to.
-         *
-         * @return the new {@link com.roxoft.lib.Coord2D} location.
-         */
-        private Coord2D move(final Coord2D newLocation) {
-<span class="nc" id="L72">            locationHistory.add(newLocation);</span>
-<span class="nc" id="L73">            location = newLocation;</span>
-<span class="nc" id="L74">            return newLocation;</span>
-        }
-
-        /**
-         * @return this {@link Santa}s {@link com.roxoft.lib.Coord2D} location.
-         */
-        public Coord2D location() {
-<span class="nc" id="L81">            return location;</span>
-        }
-    }
-
     /**
-     * @param santaNumber the number of the desired {@link Santa}.
-     * @return The {@link Santa} identified by the provided santaNumber
+     * @param santaNumber the number of the desired {@link Movable2DEntity}.
+     * @return The {@link Movable2DEntity} identified by the provided santaNumber
      */
-    public Santa getSanta(final int santaNumber) {
-<span class="nc" id="L90">        return santas.get(santaNumber);</span>
+    public Movable2DEntity getSanta(final int santaNumber) {
+<span class="nc" id="L22">        return santas.get(santaNumber);</span>
     }
 
-<span class="nc" id="L93">    private Day3(final String instructionSequence) {</span>
-<span class="nc" id="L94">        instructions = instructionSequence;</span>
-<span class="nc" id="L95">        santas = new ArrayList&lt;&gt;();</span>
-<span class="nc" id="L96">    }</span>
+<span class="nc" id="L25">    private Day3(final String instructionSequence) {</span>
+<span class="nc" id="L26">        instructions = instructionSequence;</span>
+<span class="nc" id="L27">        santas = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L28">    }</span>
 
-<span class="nc" id="L98">    private Day3(final String instructionSequence, final List&lt;Santa&gt; predefinedSantas) {</span>
-<span class="nc" id="L99">        instructions = instructionSequence;</span>
-<span class="nc" id="L100">        santas = predefinedSantas;</span>
-<span class="nc" id="L101">    }</span>
+<span class="nc" id="L30">    private Day3(final String instructionSequence, final List&lt;Movable2DEntity&gt; predefinedSantas) {</span>
+<span class="nc" id="L31">        instructions = instructionSequence;</span>
+<span class="nc" id="L32">        santas = predefinedSantas;</span>
+<span class="nc" id="L33">    }</span>
 
     /**
      * @param instructionSequence A {@link String} representing a series of instructions
@@ -106,51 +38,51 @@ public final class Day3 {
      * @return A {@link Day3} object ready for solving the problem.
      */
     public static Day3 of(final String instructionSequence) {
-<span class="nc" id="L109">        return new Day3(instructionSequence);</span>
+<span class="nc" id="L41">        return new Day3(instructionSequence);</span>
     }
 
     /**
-     * @return A new {@link Day3} object that is a clone of this one with an additional {@link Santa} at {@link Coord2D} (0,0)
+     * @return A new {@link Day3} object that is a clone of this one with an additional {@link Movable2DEntity} at {@link Coord2D} (0,0)
      */
     public Day3 withNewSanta() {
-<span class="nc" id="L116">        return withASantaAt(Coord2D.of(0, 0));</span>
+<span class="nc" id="L48">        return withASantaAt(Coord2D.of(0, 0));</span>
     }
 
     /**
-     * @param location the {@link Coord2D} location of the new {@link Santa}
+     * @param location the {@link Coord2D} location of the new {@link Movable2DEntity}
      *
-     * @return A new {@link Day3} object that is a clone of this one with an additional {@link Santa} at the provided {@link Coord2D} location
+     * @return A new {@link Day3} object that is a clone of this one with an additional {@link Movable2DEntity} at the provided {@link Coord2D} location
      */
     public Day3 withASantaAt(final Coord2D location) {
-<span class="nc" id="L125">        final List&lt;Santa&gt; newSantaList = santas;</span>
-<span class="nc" id="L126">        newSantaList.add(new Santa(location));</span>
-<span class="nc" id="L127">        return new Day3(</span>
+<span class="nc" id="L57">        final List&lt;Movable2DEntity&gt; newSantaList = santas;</span>
+<span class="nc" id="L58">        newSantaList.add(Movable2DEntity.at(location));</span>
+<span class="nc" id="L59">        return new Day3(</span>
                 instructions,
                 newSantaList
         );
     }
 
     /**
-     * @return The number of unique houses visited by all {@link Santa}s currently
+     * @return The number of unique houses visited by all {@link Movable2DEntity}s currently
      */
     public long getNumberOfVisitedHouses() {
-<span class="nc" id="L137">        return santas</span>
-<span class="nc" id="L138">                .stream()</span>
-<span class="nc" id="L139">                .map(santa -&gt; santa.locationHistory)</span>
-<span class="nc" id="L140">                .flatMap(List::stream)</span>
-<span class="nc" id="L141">                .distinct()</span>
-<span class="nc" id="L142">                .count();</span>
+<span class="nc" id="L69">        return santas</span>
+<span class="nc" id="L70">                .stream()</span>
+<span class="nc" id="L71">                .map(Movable2DEntity::locationHistory)</span>
+<span class="nc" id="L72">                .flatMap(List::stream)</span>
+<span class="nc" id="L73">                .distinct()</span>
+<span class="nc" id="L74">                .count();</span>
     }
 
     /**
      * @return An updated {@link Day3} object where all instructions have been followed
      */
     public Day3 followInstructions() {
-<span class="nc" id="L149">        Day3 intermediateStep = this;</span>
-<span class="nc bnc" id="L150" title="All 2 branches missed.">        for (int i = 0; i &lt; instructions.length(); i++) {</span>
-<span class="nc" id="L151">            intermediateStep = intermediateStep.followInstruction(i);</span>
+<span class="nc" id="L81">        Day3 intermediateStep = this;</span>
+<span class="nc bnc" id="L82" title="All 2 branches missed.">        for (int i = 0; i &lt; instructions.length(); i++) {</span>
+<span class="nc" id="L83">            intermediateStep = intermediateStep.followInstruction(i);</span>
         }
-<span class="nc" id="L153">        return intermediateStep;</span>
+<span class="nc" id="L85">        return intermediateStep;</span>
     }
 
     /**
@@ -158,25 +90,25 @@ public final class Day3 {
      * @return An updated {@link Day3} object where the indicated instruction has been followed
      */
     public Day3 followInstruction(final int i) {
-<span class="nc" id="L161">        final Santa nextSanta = santas.get(santaFocus);</span>
+<span class="nc" id="L93">        final Movable2DEntity nextSanta = santas.get(santaFocus);</span>
 
-<span class="nc bnc" id="L163" title="All 5 branches missed.">        switch (instructions.charAt(i)) {</span>
-<span class="nc" id="L164">            case '^': nextSanta.moveUp(); break;</span>
-<span class="nc" id="L165">            case 'v': nextSanta.moveDown(); break;</span>
-<span class="nc" id="L166">            case '&gt;': nextSanta.moveRight(); break;</span>
-<span class="nc" id="L167">            case '&lt;': nextSanta.moveLeft(); break;</span>
-<span class="nc" id="L168">            default: throw new UnexpectedSolutionException(&quot;Unexpected instruction '&quot; + instructions.charAt(0) + &quot;'&quot;);</span>
+<span class="nc bnc" id="L95" title="All 5 branches missed.">        switch (instructions.charAt(i)) {</span>
+<span class="nc" id="L96">            case '^': nextSanta.moveUp(); break;</span>
+<span class="nc" id="L97">            case 'v': nextSanta.moveDown(); break;</span>
+<span class="nc" id="L98">            case '&gt;': nextSanta.moveRight(); break;</span>
+<span class="nc" id="L99">            case '&lt;': nextSanta.moveLeft(); break;</span>
+<span class="nc" id="L100">            default: throw new UnexpectedSolutionException(&quot;Unexpected instruction '&quot; + instructions.charAt(0) + &quot;'&quot;);</span>
         }
 
-<span class="nc bnc" id="L171" title="All 2 branches missed.">        santaFocus = (santaFocus + 1) &lt; santas.size() ? (santaFocus + 1) : 0;</span>
-<span class="nc" id="L172">        return this;</span>
+<span class="nc bnc" id="L103" title="All 2 branches missed.">        santaFocus = (santaFocus + 1) &lt; santas.size() ? (santaFocus + 1) : 0;</span>
+<span class="nc" id="L104">        return this;</span>
     }
 
     /**
      * @return An updated {@link Day3} object where the next instruction has been followed
      */
     public Day3 followNextInstruction() {
-<span class="nc" id="L179">        return followInstruction(0);</span>
+<span class="nc" id="L111">        return followInstruction(0);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

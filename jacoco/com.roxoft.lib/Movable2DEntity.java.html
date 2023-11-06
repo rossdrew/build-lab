@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Movable2DEntity.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">build-lab</a> &gt; <a href="index.source.html" class="el_package">com.roxoft.lib</a> &gt; <span class="el_source">Movable2DEntity.java</span></div><h1>Movable2DEntity.java</h1><pre class="source lang-java linenums">package com.roxoft.lib;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Mutable entity on a {@link com.roxoft.lib.Coord2D} co-ordinate system which retains a movement history.
+ */
+public final class Movable2DEntity {
+    /** The history of {@link com.roxoft.lib.Coord2D} visited by this {@link Movable2DEntity}. */
+    private List&lt;Coord2D&gt; locationHistory;
+    /** This {@link Movable2DEntity}s current {@link com.roxoft.lib.Coord2D} location. */
+    private Coord2D location;
+
+<span class="nc" id="L15">    private Movable2DEntity(final Coord2D currentLocation) {</span>
+<span class="nc" id="L16">        location = currentLocation;</span>
+<span class="nc" id="L17">        locationHistory = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L18">        locationHistory.add(currentLocation);</span>
+<span class="nc" id="L19">    }</span>
+
+    public static Movable2DEntity at(final Coord2D startLocation){
+<span class="nc" id="L22">        return new Movable2DEntity(startLocation);</span>
+    }
+
+    /**
+     * Move this {@link Movable2DEntity}s {@link com.roxoft.lib.Coord2D} location Up/North one space.
+     *
+     * @return the new {@link com.roxoft.lib.Coord2D} location.
+     */
+    public Coord2D moveUp() {
+<span class="nc" id="L31">        return move(Coord2D.of(location.getX(), location.getY() - 1));</span>
+    }
+
+    /**
+     * Move this {@link Movable2DEntity}s {@link com.roxoft.lib.Coord2D} location Down/South one space.
+     *
+     * @return the new {@link com.roxoft.lib.Coord2D} location.
+     */
+    public Coord2D moveDown() {
+<span class="nc" id="L40">        return move(Coord2D.of(location.getX(), location.getY() + 1));</span>
+    }
+
+    /**
+     * Move this {@link Movable2DEntity}s {@link com.roxoft.lib.Coord2D} location Left/West one space.
+     *
+     * @return the new {@link com.roxoft.lib.Coord2D} location.
+     */
+    public Coord2D moveLeft() {
+<span class="nc" id="L49">        return move(Coord2D.of(location.getX() - 1, location.getY()));</span>
+    }
+
+    /**
+     * Move this {@link Movable2DEntity}s {@link com.roxoft.lib.Coord2D} location Right/East one space.
+     *
+     * @return the new {@link com.roxoft.lib.Coord2D} location.
+     */
+    public Coord2D moveRight() {
+<span class="nc" id="L58">        return move(Coord2D.of(location.getX() + 1, location.getY()));</span>
+    }
+
+    /**
+     * @param newLocation a {@link com.roxoft.lib.Coord2D} to move this {@link Movable2DEntity} to.
+     *
+     * @return the new {@link com.roxoft.lib.Coord2D} location.
+     */
+    private Coord2D move(final Coord2D newLocation) {
+<span class="nc" id="L67">        locationHistory.add(newLocation);</span>
+<span class="nc" id="L68">        location = newLocation;</span>
+<span class="nc" id="L69">        return newLocation;</span>
+    }
+
+    /**
+     * @return this {@link Movable2DEntity}s {@link com.roxoft.lib.Coord2D} location.
+     */
+    public Coord2D location() {
+<span class="nc" id="L76">        return location;</span>
+    }
+
+    /**
+     * @return this {@link Movable2DEntity}s history of {@link com.roxoft.lib.Coord2D} location.
+     */
+    public List&lt;Coord2D&gt; locationHistory(){
+<span class="nc" id="L83">        return locationHistory;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>
