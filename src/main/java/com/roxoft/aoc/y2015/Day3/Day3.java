@@ -1,7 +1,7 @@
 package com.roxoft.aoc.y2015.Day3;
 
 import com.roxoft.aoc.UnexpectedSolutionException;
-import com.roxoft.lib.Coord2D;
+import com.roxoft.lib.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,84 +9,16 @@ import java.util.List;
 public final class Day3 {
     /** List of instructions to follow. */
     private final String instructions;
-    /** The {@link List} of {@link Santa}s that will be visiting houses. */
-    private final List<Santa> santas;
-    /** Which {@link Santa} is receiving the next instruction. **/
+    /** The {@link List} of {@link Movable2DEntity}s that will be visiting houses. */
+    private final List<Movable2DEntity> santas;
+    /** Which {@link Movable2DEntity} is receiving the next instruction. **/
     private int santaFocus = 0;
 
-    //This should possibly be a class with a private constructor
-    public final class Santa {
-        /** The history of {@link com.roxoft.lib.Coord2D} visited by this {@link Santa}. */
-        private List<Coord2D> locationHistory;
-        /** This {@link Santa}s current {@link com.roxoft.lib.Coord2D} location. */
-        private Coord2D location;
-
-        private Santa(final Coord2D currentLocation) {
-            location = currentLocation;
-            locationHistory = new ArrayList<>();
-            locationHistory.add(currentLocation);
-        }
-
-        /**
-         * Move this {@link Santa}s {@link com.roxoft.lib.Coord2D} location Up/North one space.
-         *
-         * @return the new {@link com.roxoft.lib.Coord2D} location.
-         */
-        public Coord2D moveUp() {
-            return move(Coord2D.of(location.getX(), location.getY() - 1));
-        }
-
-        /**
-         * Move this {@link Santa}s {@link com.roxoft.lib.Coord2D} location Down/South one space.
-         *
-         * @return the new {@link com.roxoft.lib.Coord2D} location.
-         */
-        public Coord2D moveDown() {
-            return move(Coord2D.of(location.getX(), location.getY() + 1));
-        }
-
-        /**
-         * Move this {@link Santa}s {@link com.roxoft.lib.Coord2D} location Left/West one space.
-         *
-         * @return the new {@link com.roxoft.lib.Coord2D} location.
-         */
-        public Coord2D moveLeft() {
-            return move(Coord2D.of(location.getX() - 1, location.getY()));
-        }
-
-        /**
-         * Move this {@link Santa}s {@link com.roxoft.lib.Coord2D} location Right/East one space.
-         *
-         * @return the new {@link com.roxoft.lib.Coord2D} location.
-         */
-        public Coord2D moveRight() {
-            return move(Coord2D.of(location.getX() + 1, location.getY()));
-        }
-
-        /**
-         * @param newLocation a {@link com.roxoft.lib.Coord2D} to move this {@link Santa} to.
-         *
-         * @return the new {@link com.roxoft.lib.Coord2D} location.
-         */
-        private Coord2D move(final Coord2D newLocation) {
-            locationHistory.add(newLocation);
-            location = newLocation;
-            return newLocation;
-        }
-
-        /**
-         * @return this {@link Santa}s {@link com.roxoft.lib.Coord2D} location.
-         */
-        public Coord2D location() {
-            return location;
-        }
-    }
-
     /**
-     * @param santaNumber the number of the desired {@link Santa}.
-     * @return The {@link Santa} identified by the provided santaNumber
+     * @param santaNumber the number of the desired {@link Movable2DEntity}.
+     * @return The {@link Movable2DEntity} identified by the provided santaNumber
      */
-    public Santa getSanta(final int santaNumber) {
+    public Movable2DEntity getSanta(final int santaNumber) {
         return santas.get(santaNumber);
     }
 
@@ -95,7 +27,7 @@ public final class Day3 {
         santas = new ArrayList<>();
     }
 
-    private Day3(final String instructionSequence, final List<Santa> predefinedSantas) {
+    private Day3(final String instructionSequence, final List<Movable2DEntity> predefinedSantas) {
         instructions = instructionSequence;
         santas = predefinedSantas;
     }
@@ -110,20 +42,20 @@ public final class Day3 {
     }
 
     /**
-     * @return A new {@link Day3} object that is a clone of this one with an additional {@link Santa} at {@link Coord2D} (0,0)
+     * @return A new {@link Day3} object that is a clone of this one with an additional {@link Movable2DEntity} at {@link Coord2D} (0,0)
      */
     public Day3 withNewSanta() {
         return withASantaAt(Coord2D.of(0, 0));
     }
 
     /**
-     * @param location the {@link Coord2D} location of the new {@link Santa}
+     * @param location the {@link Coord2D} location of the new {@link Movable2DEntity}
      *
-     * @return A new {@link Day3} object that is a clone of this one with an additional {@link Santa} at the provided {@link Coord2D} location
+     * @return A new {@link Day3} object that is a clone of this one with an additional {@link Movable2DEntity} at the provided {@link Coord2D} location
      */
     public Day3 withASantaAt(final Coord2D location) {
-        final List<Santa> newSantaList = santas;
-        newSantaList.add(new Santa(location));
+        final List<Movable2DEntity> newSantaList = santas;
+        newSantaList.add(Movable2DEntity.at(location));
         return new Day3(
                 instructions,
                 newSantaList
@@ -131,12 +63,12 @@ public final class Day3 {
     }
 
     /**
-     * @return The number of unique houses visited by all {@link Santa}s currently
+     * @return The number of unique houses visited by all {@link Movable2DEntity}s currently
      */
     public long getNumberOfVisitedHouses() {
         return santas
                 .stream()
-                .map(santa -> santa.locationHistory)
+                .map(Movable2DEntity::locationHistory)
                 .flatMap(List::stream)
                 .distinct()
                 .count();
@@ -158,7 +90,7 @@ public final class Day3 {
      * @return An updated {@link Day3} object where the indicated instruction has been followed
      */
     public Day3 followInstruction(final int i) {
-        final Santa nextSanta = santas.get(santaFocus);
+        final Movable2DEntity nextSanta = santas.get(santaFocus);
 
         switch (instructions.charAt(i)) {
             case '^': nextSanta.moveUp(); break;
