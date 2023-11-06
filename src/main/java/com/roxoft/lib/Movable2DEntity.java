@@ -31,8 +31,8 @@ public final class Movable2DEntity {
      *
      * @return the new {@linkCoord2D} location.
      */
-    public Coord2D moveUp() {
-        return move(Coord2D.of(location.getX(), location.getY() - 1));
+    public void moveUp() {
+        move(Coord2D.of(location.getX(), location.getY() - 1));
     }
 
     /**
@@ -40,8 +40,8 @@ public final class Movable2DEntity {
      *
      * @return the new {@link Coord2D} location.
      */
-    public Coord2D moveDown() {
-        return move(Coord2D.of(location.getX(), location.getY() + 1));
+    public void moveDown() {
+        move(Coord2D.of(location.getX(), location.getY() + 1));
     }
 
     /**
@@ -49,8 +49,8 @@ public final class Movable2DEntity {
      *
      * @return the new {@link Coord2D} location.
      */
-    public Coord2D moveLeft() {
-        return move(Coord2D.of(location.getX() - 1, location.getY()));
+    public void moveLeft() {
+        move(Coord2D.of(location.getX() - 1, location.getY()));
     }
 
     /**
@@ -58,8 +58,8 @@ public final class Movable2DEntity {
      *
      * @return the new {@link Coord2D} location.
      */
-    public Coord2D moveRight() {
-        return move(Coord2D.of(location.getX() + 1, location.getY()));
+    public void moveRight() {
+        move(Coord2D.of(location.getX() + 1, location.getY()));
     }
 
     /**
@@ -67,10 +67,9 @@ public final class Movable2DEntity {
      *
      * @return the new {@link Coord2D} location.
      */
-    private Coord2D move(final Coord2D newLocation) {
+    private void move(final Coord2D newLocation) {
         locationHistory.add(newLocation);
         location = newLocation;
-        return newLocation;
     }
 
     /**
