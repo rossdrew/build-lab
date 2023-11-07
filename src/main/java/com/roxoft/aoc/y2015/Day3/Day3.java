@@ -79,11 +79,10 @@ public final class Day3 {
      * @return An updated {@link Day3} object where all instructions have been followed
      */
     public Day3 followInstructions() {
-        Day3 intermediateStep = this;
         for (int i = 0; i < instructions.length(); i++) {
-            intermediateStep = intermediateStep.followInstruction(i);
+            followInstruction(i);
         }
-        return intermediateStep;
+        return this;
     }
 
     /**
@@ -101,8 +100,9 @@ public final class Day3 {
             default: throw new UnexpectedSolutionException("Unexpected instruction '" + instructions.charAt(0) + "'");
         }
 
+        //Cycle through Santas
         santaFocus = (santaFocus + 1) < santas.size() ? (santaFocus + 1) : 0;
-        return this;
+        return this; //XXX: Immutable classes would probably be better.
     }
 
     /**
