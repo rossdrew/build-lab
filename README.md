@@ -1,3 +1,5 @@
+![GitHub Actions](https://github.com/rossdrew/build-lab/actions/workflows/maven.yml/badge.svg)
+
 # Build Laboratory
 
 Started with a Roman Numeral converter codebase to test build tools and I've expanded it to include Advent of Code solutions, where I take my time as write them as best I can.
