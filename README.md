@@ -1,4 +1,4 @@
-![GitHub Actions](https://github.com/rossdrew/build-lab/actions/workflows/maven.yml/badge.svg)
+[![GitHub Actions](https://github.com/rossdrew/build-lab/actions/workflows/maven.yml/badge.svg)](https://github.com/rossdrew/build-lab/actions)
 
 # Build Laboratory
 
