@@ -79,11 +79,10 @@ public final class Day3 {
      * @return An updated {@link Day3} object where all instructions have been followed
      */
     public Day3 followInstructions() {
-<span class="nc" id="L82">        Day3 intermediateStep = this;</span>
-<span class="nc bnc" id="L83" title="All 2 branches missed.">        for (int i = 0; i &lt; instructions.length(); i++) {</span>
-<span class="nc" id="L84">            intermediateStep = intermediateStep.followInstruction(i);</span>
+<span class="nc bnc" id="L82" title="All 2 branches missed.">        for (int i = 0; i &lt; instructions.length(); i++) {</span>
+<span class="nc" id="L83">            followInstruction(i);</span>
         }
-<span class="nc" id="L86">        return intermediateStep;</span>
+<span class="nc" id="L85">        return this;</span>
     }
 
     /**
@@ -91,18 +90,19 @@ public final class Day3 {
      * @return An updated {@link Day3} object where the indicated instruction has been followed
      */
     public Day3 followInstruction(final int i) {
-<span class="nc" id="L94">        final Movable2DEntity nextSanta = santas.get(santaFocus);</span>
+<span class="nc" id="L93">        final Movable2DEntity nextSanta = santas.get(santaFocus);</span>
 
-<span class="nc bnc" id="L96" title="All 5 branches missed.">        switch (instructions.charAt(i)) {</span>
-<span class="nc" id="L97">            case '^': nextSanta.moveUp(); break;</span>
-<span class="nc" id="L98">            case 'v': nextSanta.moveDown(); break;</span>
-<span class="nc" id="L99">            case '&gt;': nextSanta.moveRight(); break;</span>
-<span class="nc" id="L100">            case '&lt;': nextSanta.moveLeft(); break;</span>
-<span class="nc" id="L101">            default: throw new UnexpectedSolutionException(&quot;Unexpected instruction '&quot; + instructions.charAt(0) + &quot;'&quot;);</span>
+<span class="nc bnc" id="L95" title="All 5 branches missed.">        switch (instructions.charAt(i)) {</span>
+<span class="nc" id="L96">            case '^': nextSanta.moveUp(); break;</span>
+<span class="nc" id="L97">            case 'v': nextSanta.moveDown(); break;</span>
+<span class="nc" id="L98">            case '&gt;': nextSanta.moveRight(); break;</span>
+<span class="nc" id="L99">            case '&lt;': nextSanta.moveLeft(); break;</span>
+<span class="nc" id="L100">            default: throw new UnexpectedSolutionException(&quot;Unexpected instruction '&quot; + instructions.charAt(0) + &quot;'&quot;);</span>
         }
 
+        //Cycle through Santas
 <span class="nc bnc" id="L104" title="All 2 branches missed.">        santaFocus = (santaFocus + 1) &lt; santas.size() ? (santaFocus + 1) : 0;</span>
-<span class="nc" id="L105">        return this;</span>
+<span class="nc" id="L105">        return this; //XXX: Immutable classes would probably be better.</span>
     }
 
     /**
