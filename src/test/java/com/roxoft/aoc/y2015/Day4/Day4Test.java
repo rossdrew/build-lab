@@ -3,8 +3,10 @@ package com.roxoft.aoc.y2015.Day4;
 import com.roxoft.lib.Analyse;
 import com.roxoft.lib.From;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
 
 import java.security.NoSuchAlgorithmException;
+import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -27,6 +29,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * --- Part Two ---
  * Now find one that starts with six zeroes.
  */
+//@Timeout(value = 30, unit = TimeUnit.SECONDS)
 public class Day4Test {
     @Test
     public void requirement_stringToMD5Hex() throws NoSuchAlgorithmException {
@@ -67,5 +70,10 @@ public class Day4Test {
     @Test
     public void solution_B() throws NoSuchAlgorithmException {
         assertEquals("iwrupvqb9958218", Day4.with("iwrupvqb").solutionB());
+    }
+
+    @Test
+    public void randomTest() throws NoSuchAlgorithmException {
+        assertEquals("?", Day4.with("").solutionB());
     }
 }

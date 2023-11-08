@@ -1,5 +1,6 @@
 package com.roxoft.lib;
 
+import java.util.Arrays;
 import java.util.List;
 
 public final class Analyse {
@@ -28,11 +29,11 @@ public final class Analyse {
             return false;
         }
 
-        final List<Character> list = value.substring(0, numberOfRepetitions).chars().mapToObj(c -> (char) c).distinct().toList();
-        if (list.size() > 1) {
-            return false;
-        }
+        char[] charArray = new char[numberOfRepetitions];
+        Arrays.fill(charArray, '0');
+        final String prefix = new String(charArray);
+        value.startsWith(prefix);
 
-        return list.get(0) == repeatingCharacter;
+        return value.startsWith(prefix);
     }
 }
