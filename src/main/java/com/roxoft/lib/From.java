@@ -1,23 +1,27 @@
 package com.roxoft.lib;
 
-import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public class From {
+public final class From {
+    /** The value to be converted. */
     private final String value;
 
-    private From(final String input){
+    private From(final String input) {
         this.value = input;
     }
 
-    public static From string(final String input){
+    /**
+     * @param input a value to perform a conversion on.
+     * @return a new {@link From} object from which to do a conversion.
+     */
+    public static From string(final String input) {
         return new From(input);
     }
 
     /**
-     * @return An MD5 hashed {@link String} in hexadecimal
+     * @return An MD5 hashed {@link String} in hexadecimal.
      */
     public String toMD5Hex() throws NoSuchAlgorithmException {
         final byte[] bytesOfMessage = value.getBytes(StandardCharsets.UTF_8);

@@ -5,36 +5,51 @@ import com.roxoft.lib.From;
 
 import java.security.NoSuchAlgorithmException;
 
-public class Day4 {
+public final class Day4 {
+    /** The problem value being run. */
     private final String value;
 
-    private Day4(final String input){
+    private Day4(final String input) {
         value = input;
     }
-    public static Day4 with(String input) {
+
+    /**
+     * @param input the problem value to run the solution against.
+     * @return A new {@link Day4} object for running the solution.
+     */
+    public static Day4 with(final String input) {
         return new Day4(input);
     }
 
+    /**
+     * @return The solution to problem A given the current setup.
+     * @throws NoSuchAlgorithmException if MD5 algorithm is not present.
+     */
     public String solutionA() throws NoSuchAlgorithmException {
-        for (long i = 0; i < Long.MAX_VALUE; i++){
-            final String testValue = value + i;
-            final String md5Hex = From.string(testValue).toMD5Hex();
-
-            if (Analyse.string(md5Hex).startsWith(5, '0')){
-                return testValue;
-            }
-        }
-
-        throw new RuntimeException("No solution found for this input");
+        return solution(5);
     }
 
-    //XXX This is very slow
+    /**
+     * @return The solution to problem A given the current setup.
+     * @throws NoSuchAlgorithmException if MD5 algorithm is not present.
+     */
     public String solutionB() throws NoSuchAlgorithmException {
-        for (long i = 0; i < Long.MAX_VALUE; i++){
+        return solution(6);
+    }
+
+    /**
+     * XXX This is a very slow implementation, worth looking at optimisations.
+     *
+     * @param characterRepetitions number of character repetitions to look for.
+     * @return The solution to problem given the current setup.
+     * @throws NoSuchAlgorithmException if MD5 algorithm is not present.
+     */
+    private String solution(final int characterRepetitions) throws NoSuchAlgorithmException {
+        for (long i = 0; i < Long.MAX_VALUE; i++) {
             final String testValue = value + i;
             final String md5Hex = From.string(testValue).toMD5Hex();
 
-            if (Analyse.string(md5Hex).startsWith(6, '0')){
+            if (Analyse.string(md5Hex).startsWith(characterRepetitions, '0')) {
                 return testValue;
             }
         }
