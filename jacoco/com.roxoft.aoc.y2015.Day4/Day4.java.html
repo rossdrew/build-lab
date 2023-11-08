@@ -5,41 +5,56 @@ import com.roxoft.lib.From;
 
 import java.security.NoSuchAlgorithmException;
 
-public class Day4 {
+public final class Day4 {
+    /** The problem value being run. */
     private final String value;
 
-<span class="nc" id="L11">    private Day4(final String input){</span>
-<span class="nc" id="L12">        value = input;</span>
-<span class="nc" id="L13">    }</span>
-    public static Day4 with(String input) {
-<span class="nc" id="L15">        return new Day4(input);</span>
+<span class="nc" id="L12">    private Day4(final String input) {</span>
+<span class="nc" id="L13">        value = input;</span>
+<span class="nc" id="L14">    }</span>
+
+    /**
+     * @param input the problem value to run the solution against.
+     * @return A new {@link Day4} object for running the solution.
+     */
+    public static Day4 with(final String input) {
+<span class="nc" id="L21">        return new Day4(input);</span>
     }
 
+    /**
+     * @return The solution to problem A given the current setup.
+     * @throws NoSuchAlgorithmException if MD5 algorithm is not present.
+     */
     public String solutionA() throws NoSuchAlgorithmException {
-<span class="nc bnc" id="L19" title="All 2 branches missed.">        for (long i = 0; i &lt; Long.MAX_VALUE; i++){</span>
-<span class="nc" id="L20">            final String testValue = value + i;</span>
-<span class="nc" id="L21">            final String md5Hex = From.string(testValue).toMD5Hex();</span>
-
-<span class="nc bnc" id="L23" title="All 2 branches missed.">            if (Analyse.string(md5Hex).startsWith(5, '0')){</span>
-<span class="nc" id="L24">                return testValue;</span>
-            }
-        }
-
-<span class="nc" id="L28">        throw new RuntimeException(&quot;No solution found for this input&quot;);</span>
+<span class="nc" id="L29">        return solution(5);</span>
     }
 
-    //XXX This is very slow
+    /**
+     * @return The solution to problem A given the current setup.
+     * @throws NoSuchAlgorithmException if MD5 algorithm is not present.
+     */
     public String solutionB() throws NoSuchAlgorithmException {
-<span class="nc bnc" id="L33" title="All 2 branches missed.">        for (long i = 0; i &lt; Long.MAX_VALUE; i++){</span>
-<span class="nc" id="L34">            final String testValue = value + i;</span>
-<span class="nc" id="L35">            final String md5Hex = From.string(testValue).toMD5Hex();</span>
+<span class="nc" id="L37">        return solution(6);</span>
+    }
 
-<span class="nc bnc" id="L37" title="All 2 branches missed.">            if (Analyse.string(md5Hex).startsWith(6, '0')){</span>
-<span class="nc" id="L38">                return testValue;</span>
+    /**
+     * XXX This is a very slow implementation, worth looking at optimisations.
+     *
+     * @param characterRepetitions number of character repetitions to look for.
+     * @return The solution to problem given the current setup.
+     * @throws NoSuchAlgorithmException if MD5 algorithm is not present.
+     */
+    private String solution(final int characterRepetitions) throws NoSuchAlgorithmException {
+<span class="nc bnc" id="L48" title="All 2 branches missed.">        for (long i = 0; i &lt; Long.MAX_VALUE; i++) {</span>
+<span class="nc" id="L49">            final String testValue = value + i;</span>
+<span class="nc" id="L50">            final String md5Hex = From.string(testValue).toMD5Hex();</span>
+
+<span class="nc bnc" id="L52" title="All 2 branches missed.">            if (Analyse.string(md5Hex).startsWith(characterRepetitions, '0')) {</span>
+<span class="nc" id="L53">                return testValue;</span>
             }
         }
 
-<span class="nc" id="L42">        throw new RuntimeException(&quot;No solution found for this input&quot;);</span>
+<span class="nc" id="L57">        throw new RuntimeException(&quot;No solution found for this input&quot;);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

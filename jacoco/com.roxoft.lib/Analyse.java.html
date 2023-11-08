@@ -2,26 +2,38 @@
 
 import java.util.List;
 
-public class Analyse {
+public final class Analyse {
+    /** The value to be analysed. */
     private final String value;
 
-<span class="nc" id="L8">    private Analyse(final String input){</span>
-<span class="nc" id="L9">        this.value = input;</span>
-<span class="nc" id="L10">    }</span>
+<span class="nc" id="L9">    private Analyse(final String input) {</span>
+<span class="nc" id="L10">        this.value = input;</span>
+<span class="nc" id="L11">    }</span>
 
-    public static Analyse string(final String input){
-<span class="nc" id="L13">        return new Analyse(input);</span>
+    /**
+     * @param input the value to be analysed.
+     * @return a new {@link Analyse} object for running analysis.
+     */
+    public static Analyse string(final String input) {
+<span class="nc" id="L18">        return new Analyse(input);</span>
     }
 
-    public boolean startsWith(final int numberOf, final char characters){
-<span class="nc bnc" id="L17" title="All 2 branches missed.">        if (value.length() &lt; numberOf)</span>
-<span class="nc" id="L18">            return false;</span>
+    /**
+     * @param numberOfRepetitions a number of expected repeitions of a given character.
+     * @param repeatingCharacter a character expected to repeat a given number of times.
+     * @return true if given character repeats given number of times, false otherwise.
+     */
+    public boolean startsWith(final int numberOfRepetitions, final char repeatingCharacter) {
+<span class="nc bnc" id="L27" title="All 2 branches missed.">        if (value.length() &lt; numberOfRepetitions) {</span>
+<span class="nc" id="L28">            return false;</span>
+        }
 
-<span class="nc" id="L20">        final List&lt;Character&gt; list = value.substring(0, numberOf).chars().mapToObj(c -&gt; (char) c).distinct().toList();</span>
-<span class="nc bnc" id="L21" title="All 2 branches missed.">        if (list.size() &gt; 1)</span>
-<span class="nc" id="L22">            return false;</span>
+<span class="nc" id="L31">        final List&lt;Character&gt; list = value.substring(0, numberOfRepetitions).chars().mapToObj(c -&gt; (char) c).distinct().toList();</span>
+<span class="nc bnc" id="L32" title="All 2 branches missed.">        if (list.size() &gt; 1) {</span>
+<span class="nc" id="L33">            return false;</span>
+        }
 
-<span class="nc bnc" id="L24" title="All 2 branches missed.">        return list.get(0) == characters;</span>
+<span class="nc bnc" id="L36" title="All 2 branches missed.">        return list.get(0) == repeatingCharacter;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>
