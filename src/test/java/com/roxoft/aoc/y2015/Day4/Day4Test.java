@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 
 import java.security.NoSuchAlgorithmException;
-import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -29,12 +28,18 @@ import static org.junit.jupiter.api.Assertions.*;
  * --- Part Two ---
  * Now find one that starts with six zeroes.
  */
-//@Timeout(value = 30, unit = TimeUnit.SECONDS)
+@Timeout(value = 30)
 public class Day4Test {
     @Test
     public void requirement_stringToMD5Hex() throws NoSuchAlgorithmException {
         assertEquals("000001dbbfa3a5c83a2d506429c7b00e".toUpperCase(), From.string("abcdef609043").toMD5Hex());
         assertEquals("000006136ef2ff3b291c85725f17325c".toUpperCase(), From.string("pqrstuv1048970").toMD5Hex());
+    }
+
+    @Test
+    public void optimisation_stringToSizeLimitedMD5Hex() throws NoSuchAlgorithmException {
+        assertEquals("000001".toUpperCase(), From.string("abcdef609043").toMD5Hex(3));
+        assertEquals("000006".toUpperCase(), From.string("pqrstuv1048970").toMD5Hex(3));
     }
 
     @Test
@@ -70,10 +75,5 @@ public class Day4Test {
     @Test
     public void solution_B() throws NoSuchAlgorithmException {
         assertEquals("iwrupvqb9958218", Day4.with("iwrupvqb").solutionB());
-    }
-
-    @Test
-    public void randomTest() throws NoSuchAlgorithmException {
-        assertEquals("?", Day4.with("").solutionB());
     }
 }

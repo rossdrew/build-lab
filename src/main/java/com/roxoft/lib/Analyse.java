@@ -1,7 +1,6 @@
 package com.roxoft.lib;
 
 import java.util.Arrays;
-import java.util.List;
 
 public final class Analyse {
     /** The value to be analysed. */
@@ -30,7 +29,7 @@ public final class Analyse {
         }
 
         char[] charArray = new char[numberOfRepetitions];
-        Arrays.fill(charArray, '0');
+        Arrays.fill(charArray, repeatingCharacter);
         final String prefix = new String(charArray);
 
         return value.startsWith(prefix);

@@ -20,16 +20,20 @@ public final class From {
         return new From(input);
     }
 
+    public String toMD5Hex() throws NoSuchAlgorithmException {
+        return toMD5Hex(16);
+    }
+
     /**
      * @return An MD5 hashed {@link String} in hexadecimal.
      */
-    public String toMD5Hex() throws NoSuchAlgorithmException {
+    public String toMD5Hex(final int limit) throws NoSuchAlgorithmException {
         final byte[] bytesOfMessage = value.getBytes(StandardCharsets.UTF_8);
         final MessageDigest md = MessageDigest.getInstance("MD5");
         final byte[] mD5digest = md.digest(bytesOfMessage);
         final StringBuilder hexStringBuilder = new StringBuilder();
-        for (byte md5Byte : mD5digest) {
-            hexStringBuilder.append(String.format("%02X", md5Byte));
+        for (int i=0; i<limit; i++){
+            hexStringBuilder.append(String.format("%02X", mD5digest[i]));
         }
         return hexStringBuilder.toString();
     }

@@ -45,9 +45,10 @@ public final class Day4 {
      * @throws NoSuchAlgorithmException if MD5 algorithm is not present.
      */
     private String solution(final int characterRepetitions) throws NoSuchAlgorithmException {
+        final int requiredHexCharacters = characterRepetitions % 2 == 0 ? characterRepetitions : characterRepetitions + 1;
         for (long i = 0; i < Long.MAX_VALUE; i++) {
             final String testValue = value + i;
-            final String md5Hex = From.string(testValue).toMD5Hex();
+            final String md5Hex = From.string(testValue).toMD5Hex(requiredHexCharacters);
 
             if (Analyse.string(md5Hex).startsWith(characterRepetitions, '0')) {
                 return testValue;
