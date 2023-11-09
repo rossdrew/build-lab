@@ -38,7 +38,7 @@ public final class From {
         final MessageDigest md = MessageDigest.getInstance("MD5");
         final byte[] mD5digest = md.digest(bytesOfMessage);
         final StringBuilder hexStringBuilder = new StringBuilder();
-        for (int i=0; i<limit; i++){
+        for (int i = 0; i < limit; i++) {
             hexStringBuilder.append(String.format("%02X", mD5digest[i]));
         }
         return hexStringBuilder.toString();
