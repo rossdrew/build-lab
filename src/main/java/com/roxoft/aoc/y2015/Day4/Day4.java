@@ -47,7 +47,7 @@ public final class Day4 {
     private String solution(final int characterRepetitions) throws NoSuchAlgorithmException {
         final int requiredHexCharacters = characterRepetitions % 2 == 0 ? characterRepetitions : characterRepetitions + 1;
         int i = 0;
-        while (true){
+        while (true) {
             final String testValue = value + i;
             final String md5Hex = From.string(testValue).toMD5Hex(requiredHexCharacters);
 
