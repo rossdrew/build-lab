@@ -32,7 +32,6 @@ public final class Analyse {
         char[] charArray = new char[numberOfRepetitions];
         Arrays.fill(charArray, '0');
         final String prefix = new String(charArray);
-        value.startsWith(prefix);
 
         return value.startsWith(prefix);
     }
