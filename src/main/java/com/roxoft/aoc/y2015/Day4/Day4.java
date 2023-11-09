@@ -46,15 +46,15 @@ public final class Day4 {
      */
     private String solution(final int characterRepetitions) throws NoSuchAlgorithmException {
         final int requiredHexCharacters = characterRepetitions % 2 == 0 ? characterRepetitions : characterRepetitions + 1;
-        for (long i = 0; i < Long.MAX_VALUE; i++) {
+        int i = 0;
+        while (true){
             final String testValue = value + i;
             final String md5Hex = From.string(testValue).toMD5Hex(requiredHexCharacters);
 
             if (Analyse.string(md5Hex).startsWith(characterRepetitions, '0')) {
                 return testValue;
             }
+            i++;
         }
-
-        throw new RuntimeException("No solution found for this input");
     }
 }
