@@ -20,12 +20,18 @@ public final class From {
         return new From(input);
     }
 
+    /**
+     * @return An MD5 hashed {@link String} in hexadecimal.
+     * @throws NoSuchAlgorithmException if MD5 cannot be used for any reason
+     */
     public String toMD5Hex() throws NoSuchAlgorithmException {
         return toMD5Hex(16);
     }
 
     /**
-     * @return An MD5 hashed {@link String} in hexadecimal.
+     * @param limit number of hex characters to convert from the start.
+     * @return An MD5 hashed {@link String} of the specified number of charactes in hexadecimal.
+     * @throws NoSuchAlgorithmException if MD5 cannot be used for any reason
      */
     public String toMD5Hex(final int limit) throws NoSuchAlgorithmException {
         final byte[] bytesOfMessage = value.getBytes(StandardCharsets.UTF_8);
