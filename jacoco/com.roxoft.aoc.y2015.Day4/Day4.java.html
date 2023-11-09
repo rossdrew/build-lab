@@ -47,7 +47,7 @@ public final class Day4 {
     private String solution(final int characterRepetitions) throws NoSuchAlgorithmException {
 <span class="nc bnc" id="L48" title="All 2 branches missed.">        final int requiredHexCharacters = characterRepetitions % 2 == 0 ? characterRepetitions : characterRepetitions + 1;</span>
 <span class="nc" id="L49">        int i = 0;</span>
-        while (true){
+        while (true) {
 <span class="nc" id="L51">            final String testValue = value + i;</span>
 <span class="nc" id="L52">            final String md5Hex = From.string(testValue).toMD5Hex(requiredHexCharacters);</span>
 
