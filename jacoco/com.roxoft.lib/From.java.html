@@ -38,7 +38,7 @@ public final class From {
 <span class="nc" id="L38">        final MessageDigest md = MessageDigest.getInstance(&quot;MD5&quot;);</span>
 <span class="nc" id="L39">        final byte[] mD5digest = md.digest(bytesOfMessage);</span>
 <span class="nc" id="L40">        final StringBuilder hexStringBuilder = new StringBuilder();</span>
-<span class="nc bnc" id="L41" title="All 2 branches missed.">        for (int i=0; i&lt;limit; i++){</span>
+<span class="nc bnc" id="L41" title="All 2 branches missed.">        for (int i = 0; i &lt; limit; i++) {</span>
 <span class="nc" id="L42">            hexStringBuilder.append(String.format(&quot;%02X&quot;, mD5digest[i]));</span>
         }
 <span class="nc" id="L44">        return hexStringBuilder.toString();</span>
