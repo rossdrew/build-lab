@@ -46,16 +46,16 @@ public final class Day4 {
      */
     private String solution(final int characterRepetitions) throws NoSuchAlgorithmException {
 <span class="nc bnc" id="L48" title="All 2 branches missed.">        final int requiredHexCharacters = characterRepetitions % 2 == 0 ? characterRepetitions : characterRepetitions + 1;</span>
-<span class="nc bnc" id="L49" title="All 2 branches missed.">        for (long i = 0; i &lt; Long.MAX_VALUE; i++) {</span>
-<span class="nc" id="L50">            final String testValue = value + i;</span>
-<span class="nc" id="L51">            final String md5Hex = From.string(testValue).toMD5Hex(requiredHexCharacters);</span>
+<span class="nc" id="L49">        int i = 0;</span>
+        while (true){
+<span class="nc" id="L51">            final String testValue = value + i;</span>
+<span class="nc" id="L52">            final String md5Hex = From.string(testValue).toMD5Hex(requiredHexCharacters);</span>
 
-<span class="nc bnc" id="L53" title="All 2 branches missed.">            if (Analyse.string(md5Hex).startsWith(characterRepetitions, '0')) {</span>
-<span class="nc" id="L54">                return testValue;</span>
+<span class="nc bnc" id="L54" title="All 2 branches missed.">            if (Analyse.string(md5Hex).startsWith(characterRepetitions, '0')) {</span>
+<span class="nc" id="L55">                return testValue;</span>
             }
-        }
-
-<span class="nc" id="L58">        throw new RuntimeException(&quot;No solution found for this input&quot;);</span>
+<span class="nc" id="L57">            i++;</span>
+<span class="nc" id="L58">        }</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>
