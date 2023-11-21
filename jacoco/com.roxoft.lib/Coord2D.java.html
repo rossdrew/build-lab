@@ -9,10 +9,10 @@ public final class Coord2D {
     private final int yCoordinate;
 
     private Coord2D(final int x,
-<span class="nc" id="L12">                    final int y) {</span>
-<span class="nc" id="L13">        xCoordinate = x;</span>
-<span class="nc" id="L14">        yCoordinate = y;</span>
-<span class="nc" id="L15">    }</span>
+<span class="fc" id="L12">                    final int y) {</span>
+<span class="fc" id="L13">        xCoordinate = x;</span>
+<span class="fc" id="L14">        yCoordinate = y;</span>
+<span class="fc" id="L15">    }</span>
 
     /**
      * @param x Cartesian x co-ordinate of a 2D location.
@@ -20,21 +20,21 @@ public final class Coord2D {
      * @return a {@link Coord2D} representation of x and y
      */
     public static Coord2D of(final int x, final int y) {
-<span class="nc" id="L23">        return new Coord2D(x, y);</span>
+<span class="fc" id="L23">        return new Coord2D(x, y);</span>
     }
 
     /**
      * @return Cartesian x co-ordinate of location.
      */
     public int getX() {
-<span class="nc" id="L30">        return xCoordinate;</span>
+<span class="fc" id="L30">        return xCoordinate;</span>
     }
 
     /**
      * @return Cartesian x co-ordinate of location.
      */
     public int getY() {
-<span class="nc" id="L37">        return yCoordinate;</span>
+<span class="fc" id="L37">        return yCoordinate;</span>
     }
 
     @Override
@@ -48,14 +48,14 @@ public final class Coord2D {
 
     @Override
     public boolean equals(final Object o) {
-<span class="nc bnc" id="L51" title="All 2 branches missed.">        if (this == o) {</span>
+<span class="pc bpc" id="L51" title="1 of 2 branches missed.">        if (this == o) {</span>
 <span class="nc" id="L52">            return true;</span>
         }
-<span class="nc bnc" id="L54" title="All 4 branches missed.">        if (o == null || getClass() != o.getClass()) {</span>
+<span class="pc bpc" id="L54" title="2 of 4 branches missed.">        if (o == null || getClass() != o.getClass()) {</span>
 <span class="nc" id="L55">            return false;</span>
         }
-<span class="nc" id="L57">        Coord2D coord2D = (Coord2D) o;</span>
-<span class="nc bnc" id="L58" title="All 4 branches missed.">        return xCoordinate == coord2D.xCoordinate &amp;&amp; yCoordinate == coord2D.yCoordinate;</span>
+<span class="fc" id="L57">        Coord2D coord2D = (Coord2D) o;</span>
+<span class="pc bpc" id="L58" title="2 of 4 branches missed.">        return xCoordinate == coord2D.xCoordinate &amp;&amp; yCoordinate == coord2D.yCoordinate;</span>
     }
 
     @Override

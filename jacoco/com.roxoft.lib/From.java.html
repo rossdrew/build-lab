@@ -29,19 +29,20 @@ public final class From {
     }
 
     /**
-     * @param limit number of hex characters to convert from the start.
+     * @param hexCharacters number of hex characters to convert from the start. Max 16
      * @return An MD5 hashed {@link String} of the specified number of charactes in hexadecimal.
      * @throws NoSuchAlgorithmException if MD5 cannot be used for any reason
      */
-    public String toMD5Hex(final int limit) throws NoSuchAlgorithmException {
-<span class="nc" id="L37">        final byte[] bytesOfMessage = value.getBytes(StandardCharsets.UTF_8);</span>
-<span class="nc" id="L38">        final MessageDigest md = MessageDigest.getInstance(&quot;MD5&quot;);</span>
-<span class="nc" id="L39">        final byte[] mD5digest = md.digest(bytesOfMessage);</span>
-<span class="nc" id="L40">        final StringBuilder hexStringBuilder = new StringBuilder();</span>
-<span class="nc bnc" id="L41" title="All 2 branches missed.">        for (int i = 0; i &lt; limit; i++) {</span>
-<span class="nc" id="L42">            hexStringBuilder.append(String.format(&quot;%02X&quot;, mD5digest[i]));</span>
+    public String toMD5Hex(final int hexCharacters) throws NoSuchAlgorithmException {
+<span class="nc" id="L37">        final int hexCharactersToGenerate = Math.min(hexCharacters, 16);</span>
+<span class="nc" id="L38">        final byte[] bytesOfMessage = value.getBytes(StandardCharsets.UTF_8);</span>
+<span class="nc" id="L39">        final MessageDigest md = MessageDigest.getInstance(&quot;MD5&quot;);</span>
+<span class="nc" id="L40">        final byte[] mD5digest = md.digest(bytesOfMessage);</span>
+<span class="nc" id="L41">        final StringBuilder hexStringBuilder = new StringBuilder();</span>
+<span class="nc bnc" id="L42" title="All 2 branches missed.">        for (int i = 0; i &lt; hexCharactersToGenerate; i++) {</span>
+<span class="nc" id="L43">            hexStringBuilder.append(String.format(&quot;%02X&quot;, mD5digest[i]));</span>
         }
-<span class="nc" id="L44">        return hexStringBuilder.toString();</span>
+<span class="nc" id="L45">        return hexStringBuilder.toString();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

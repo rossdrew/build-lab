@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Coord2DComparison.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">build-lab</a> &gt; <a href="index.source.html" class="el_package">com.roxoft.lib</a> &gt; <span class="el_source">Coord2DComparison.java</span></div><h1>Coord2DComparison.java</h1><pre class="source lang-java linenums">package com.roxoft.lib;
+
+public final class Coord2DComparison {
+    /** First comparison object. */
+    private final Coord2D coordA;
+    /** Second comparison object. */
+    private final Coord2D coordB;
+
+<span class="fc" id="L9">    private Coord2DComparison(final Coord2D first, final Coord2D second) {</span>
+<span class="fc" id="L10">        this.coordA = first;</span>
+<span class="fc" id="L11">        this.coordB = second;</span>
+<span class="fc" id="L12">    }</span>
+
+    /**
+     * @param a The first {@link Coord2D} to be compared.
+     * @param b The second {@link Coord2D} to be compared.
+     * @return a new {@link Coord2DComparison} representing both {@link Coord2D} objects, ready to be compared.
+     */
+    public static Coord2DComparison with(final Coord2D a, final Coord2D b) {
+<span class="fc" id="L20">        return new Coord2DComparison(a, b);</span>
+    }
+
+    /**
+     * @return the {@link Math#floor(double)}ed midpoint of two {@link Coord2D}.
+     */
+    public Coord2D midpoint() {
+<span class="fc" id="L27">        final int averageX = (coordA.getX() + coordB.getX()) / 2;</span>
+<span class="fc" id="L28">        final int averageY = (coordA.getY() + coordB.getY()) / 2;</span>
+
+<span class="fc" id="L30">        return Coord2D.of(averageX, averageY);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>
