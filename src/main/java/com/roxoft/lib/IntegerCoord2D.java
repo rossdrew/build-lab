@@ -2,14 +2,14 @@ package com.roxoft.lib;
 
 import java.util.Objects;
 
-public final class Coord2D {
+public final class IntegerCoord2D {
     /** Cartesian x co-ordinate of location. */
     private final int xCoordinate;
     /** Cartesian y co-ordinate of location. */
     private final int yCoordinate;
 
-    private Coord2D(final int x,
-                    final int y) {
+    private IntegerCoord2D(final int x,
+                           final int y) {
         xCoordinate = x;
         yCoordinate = y;
     }
@@ -17,10 +17,10 @@ public final class Coord2D {
     /**
      * @param x Cartesian x co-ordinate of a 2D location.
      * @param y Cartesian y co-ordinate of a 2D location.
-     * @return a {@link Coord2D} representation of x and y
+     * @return a {@link IntegerCoord2D} representation of x and y
      */
-    public static Coord2D of(final int x, final int y) {
-        return new Coord2D(x, y);
+    public static IntegerCoord2D of(final int x, final int y) {
+        return new IntegerCoord2D(x, y);
     }
 
     /**
@@ -54,7 +54,7 @@ public final class Coord2D {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Coord2D coord2D = (Coord2D) o;
+        IntegerCoord2D coord2D = (IntegerCoord2D) o;
         return xCoordinate == coord2D.xCoordinate && yCoordinate == coord2D.yCoordinate;
     }
 

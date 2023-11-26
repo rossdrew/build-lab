@@ -1,7 +1,7 @@
 package com.roxoft.aoc.y2015.Day3;
 
 import com.roxoft.aoc.UnexpectedSolutionException;
-import com.roxoft.lib.Coord2D;
+import com.roxoft.lib.IntegerCoord2D;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -41,22 +41,22 @@ import static org.junit.jupiter.api.Assertions.*;
 public class Day3Test {
     @Test
     public void requirement_north() {
-        assertEquals(Coord2D.of(0, -1), Day3.of("^").withNewSanta().followNextInstruction().getSanta(0).location());
+        assertEquals(IntegerCoord2D.of(0, -1), Day3.of("^").withNewSanta().followNextInstruction().getSanta(0).location());
     }
 
     @Test
     public void requirement_south(){
-        assertEquals(Coord2D.of(0, 1), Day3.of("v").withNewSanta().followNextInstruction().getSanta(0).location());
+        assertEquals(IntegerCoord2D.of(0, 1), Day3.of("v").withNewSanta().followNextInstruction().getSanta(0).location());
     }
 
     @Test
     public void requirement_east() {
-        assertEquals(Coord2D.of(1, 0), Day3.of(">").withNewSanta().followNextInstruction().getSanta(0).location());
+        assertEquals(IntegerCoord2D.of(1, 0), Day3.of(">").withNewSanta().followNextInstruction().getSanta(0).location());
     }
 
     @Test
     public void requirement_west(){
-        assertEquals(Coord2D.of(-1, 0), Day3.of("<").withNewSanta().followNextInstruction().getSanta(0).location());
+        assertEquals(IntegerCoord2D.of(-1, 0), Day3.of("<").withNewSanta().followNextInstruction().getSanta(0).location());
     }
 
     @Test

@@ -1,7 +1,7 @@
 package com.roxoft.aoc.y2015.Day3;
 
 import com.roxoft.aoc.UnexpectedSolutionException;
-import com.roxoft.lib.Coord2D;
+import com.roxoft.lib.IntegerCoord2D;
 import com.roxoft.lib.Movable2DEntity;
 
 import java.util.ArrayList;
@@ -43,18 +43,18 @@ public final class Day3 {
     }
 
     /**
-     * @return A new {@link Day3} object that is a clone of this one with an additional {@link Movable2DEntity} at {@link Coord2D} (0,0)
+     * @return A new {@link Day3} object that is a clone of this one with an additional {@link Movable2DEntity} at {@link IntegerCoord2D} (0,0)
      */
     public Day3 withNewSanta() {
-        return withASantaAt(Coord2D.of(0, 0));
+        return withASantaAt(IntegerCoord2D.of(0, 0));
     }
 
     /**
-     * @param location the {@link Coord2D} location of the new {@link Movable2DEntity}
+     * @param location the {@link IntegerCoord2D} location of the new {@link Movable2DEntity}
      *
-     * @return A new {@link Day3} object that is a clone of this one with an additional {@link Movable2DEntity} at the provided {@link Coord2D} location
+     * @return A new {@link Day3} object that is a clone of this one with an additional {@link Movable2DEntity} at the provided {@link IntegerCoord2D} location
      */
-    public Day3 withASantaAt(final Coord2D location) {
+    public Day3 withASantaAt(final IntegerCoord2D location) {
         final List<Movable2DEntity> newSantaList = santas;
         newSantaList.add(Movable2DEntity.at(location));
         return new Day3(
