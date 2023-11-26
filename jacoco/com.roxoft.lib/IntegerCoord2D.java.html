@@ -1,15 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Coord2D.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">build-lab</a> &gt; <a href="index.source.html" class="el_package">com.roxoft.lib</a> &gt; <span class="el_source">Coord2D.java</span></div><h1>Coord2D.java</h1><pre class="source lang-java linenums">package com.roxoft.lib;
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>IntegerCoord2D.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">build-lab</a> &gt; <a href="index.source.html" class="el_package">com.roxoft.lib</a> &gt; <span class="el_source">IntegerCoord2D.java</span></div><h1>IntegerCoord2D.java</h1><pre class="source lang-java linenums">package com.roxoft.lib;
 
 import java.util.Objects;
 
-public final class Coord2D {
+public final class IntegerCoord2D {
     /** Cartesian x co-ordinate of location. */
     private final int xCoordinate;
     /** Cartesian y co-ordinate of location. */
     private final int yCoordinate;
 
-    private Coord2D(final int x,
-<span class="fc" id="L12">                    final int y) {</span>
+    private IntegerCoord2D(final int x,
+<span class="fc" id="L12">                           final int y) {</span>
 <span class="fc" id="L13">        xCoordinate = x;</span>
 <span class="fc" id="L14">        yCoordinate = y;</span>
 <span class="fc" id="L15">    }</span>
@@ -17,10 +17,10 @@ public final class Coord2D {
     /**
      * @param x Cartesian x co-ordinate of a 2D location.
      * @param y Cartesian y co-ordinate of a 2D location.
-     * @return a {@link Coord2D} representation of x and y
+     * @return a {@link IntegerCoord2D} representation of x and y
      */
-    public static Coord2D of(final int x, final int y) {
-<span class="fc" id="L23">        return new Coord2D(x, y);</span>
+    public static IntegerCoord2D of(final int x, final int y) {
+<span class="fc" id="L23">        return new IntegerCoord2D(x, y);</span>
     }
 
     /**
@@ -54,7 +54,7 @@ public final class Coord2D {
 <span class="pc bpc" id="L54" title="2 of 4 branches missed.">        if (o == null || getClass() != o.getClass()) {</span>
 <span class="nc" id="L55">            return false;</span>
         }
-<span class="fc" id="L57">        Coord2D coord2D = (Coord2D) o;</span>
+<span class="fc" id="L57">        IntegerCoord2D coord2D = (IntegerCoord2D) o;</span>
 <span class="pc bpc" id="L58" title="2 of 4 branches missed.">        return xCoordinate == coord2D.xCoordinate &amp;&amp; yCoordinate == coord2D.yCoordinate;</span>
     }
 

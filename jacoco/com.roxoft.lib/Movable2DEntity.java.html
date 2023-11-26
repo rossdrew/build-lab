@@ -4,15 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Mutable entity on a {@link Coord2D} co-ordinate system which retains a movement history.
+ * Mutable entity on a {@link IntegerCoord2D} co-ordinate system which retains a movement history.
  */
 public final class Movable2DEntity {
-    /** The history of {@link Coord2D} visited by this {@link Movable2DEntity}. */
-    private List&lt;Coord2D&gt; locationHistory;
-    /** This {@link Movable2DEntity}s current {@link Coord2D} location. */
-    private Coord2D location;
+    /** The history of {@link IntegerCoord2D} visited by this {@link Movable2DEntity}. */
+    private final List&lt;IntegerCoord2D&gt; locationHistory;
+    /** This {@link Movable2DEntity}s current {@link IntegerCoord2D} location. */
+    private IntegerCoord2D location;
 
-<span class="nc" id="L15">    private Movable2DEntity(final Coord2D currentLocation) {</span>
+<span class="nc" id="L15">    private Movable2DEntity(final IntegerCoord2D currentLocation) {</span>
 <span class="nc" id="L16">        location = currentLocation;</span>
 <span class="nc" id="L17">        locationHistory = new ArrayList&lt;&gt;();</span>
 <span class="nc" id="L18">        locationHistory.add(currentLocation);</span>
@@ -20,59 +20,59 @@ public final class Movable2DEntity {
 
     /**
      * @param startLocation indicates a start location for this {@link Movable2DEntity}
-     * @return a new {@link Movable2DEntity} at the specified {@link Coord2D} location
+     * @return a new {@link Movable2DEntity} at the specified {@link IntegerCoord2D} location
      */
-    public static Movable2DEntity at(final Coord2D startLocation) {
+    public static Movable2DEntity at(final IntegerCoord2D startLocation) {
 <span class="nc" id="L26">        return new Movable2DEntity(startLocation);</span>
     }
 
     /**
-     * Move this {@link Movable2DEntity}s {@link Coord2D} location Up/North one space.
+     * Move this {@link Movable2DEntity}s {@link IntegerCoord2D} location Up/North one space.
      */
     public void moveUp() {
-<span class="nc" id="L33">        move(Coord2D.of(location.getX(), location.getY() - 1));</span>
+<span class="nc" id="L33">        move(IntegerCoord2D.of(location.getX(), location.getY() - 1));</span>
 <span class="nc" id="L34">    }</span>
 
     /**
-     * Move this {@link Movable2DEntity}s {@link Coord2D} location Down/South one space.
+     * Move this {@link Movable2DEntity}s {@link IntegerCoord2D} location Down/South one space.
      */
     public void moveDown() {
-<span class="nc" id="L40">        move(Coord2D.of(location.getX(), location.getY() + 1));</span>
+<span class="nc" id="L40">        move(IntegerCoord2D.of(location.getX(), location.getY() + 1));</span>
 <span class="nc" id="L41">    }</span>
 
     /**
-     * Move this {@link Movable2DEntity}s {@link Coord2D} location Left/West one space.
+     * Move this {@link Movable2DEntity}s {@link IntegerCoord2D} location Left/West one space.
      */
     public void moveLeft() {
-<span class="nc" id="L47">        move(Coord2D.of(location.getX() - 1, location.getY()));</span>
+<span class="nc" id="L47">        move(IntegerCoord2D.of(location.getX() - 1, location.getY()));</span>
 <span class="nc" id="L48">    }</span>
 
     /**
-     * Move this {@link Movable2DEntity}s {@link Coord2D} location Right/East one space.
+     * Move this {@link Movable2DEntity}s {@link IntegerCoord2D} location Right/East one space.
      */
     public void moveRight() {
-<span class="nc" id="L54">        move(Coord2D.of(location.getX() + 1, location.getY()));</span>
+<span class="nc" id="L54">        move(IntegerCoord2D.of(location.getX() + 1, location.getY()));</span>
 <span class="nc" id="L55">    }</span>
 
     /**
-     * @param newLocation a {@link Coord2D} to move this {@link Movable2DEntity} to.
+     * @param newLocation a {@link IntegerCoord2D} to move this {@link Movable2DEntity} to.
      */
-    private void move(final Coord2D newLocation) {
+    private void move(final IntegerCoord2D newLocation) {
 <span class="nc" id="L61">        locationHistory.add(newLocation);</span>
 <span class="nc" id="L62">        location = newLocation;</span>
 <span class="nc" id="L63">    }</span>
 
     /**
-     * @return this {@link Movable2DEntity}s {@link Coord2D} location.
+     * @return this {@link Movable2DEntity}s {@link IntegerCoord2D} location.
      */
-    public Coord2D location() {
+    public IntegerCoord2D location() {
 <span class="nc" id="L69">        return location;</span>
     }
 
     /**
-     * @return this {@link Movable2DEntity}s history of {@link Coord2D} location.
+     * @return this {@link Movable2DEntity}s history of {@link IntegerCoord2D} location.
      */
-    public List&lt;Coord2D&gt; locationHistory() {
+    public List&lt;IntegerCoord2D&gt; locationHistory() {
 <span class="nc" id="L76">        return locationHistory;</span>
     }
 }
